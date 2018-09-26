@@ -6,20 +6,816 @@
 	objectVersion = 50;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		9C1F47BF215BF33E00ECCAB6 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C1F45B0215BEDDE00ECCAB6 /* GLUT.framework */; };
+		9C1F47C0215BF34300ECCAB6 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C1F45B2215BEDEB00ECCAB6 /* OpenGL.framework */; };
+		9C1F4A01215BFA3800ECCAB6 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F45A1215BED1D00ECCAB6 /* main.cpp */; };
+		9C1F4AFD215BFDEB00ECCAB6 /* libPhysX3Cooking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C1F4A04215BFDEB00ECCAB6 /* libPhysX3Cooking.a */; };
+		9C1F4AFE215BFDEB00ECCAB6 /* libPhysX3Common.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C1F4A05215BFDEB00ECCAB6 /* libPhysX3Common.a */; };
+		9C1F4AFF215BFDEB00ECCAB6 /* libPhysX3Extensions.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C1F4A06215BFDEB00ECCAB6 /* libPhysX3Extensions.a */; };
+		9C1F4B00215BFDEB00ECCAB6 /* libSceneQuery.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C1F4A07215BFDEB00ECCAB6 /* libSceneQuery.a */; };
+		9C1F4B01215BFDEB00ECCAB6 /* libLowLevel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C1F4A08215BFDEB00ECCAB6 /* libLowLevel.a */; };
+		9C1F4B02215BFDEB00ECCAB6 /* libPhysX3Vehicle.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C1F4A09215BFDEB00ECCAB6 /* libPhysX3Vehicle.a */; };
+		9C1F4B03215BFDEB00ECCAB6 /* libSimulationController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C1F4A0A215BFDEB00ECCAB6 /* libSimulationController.a */; };
+		9C1F4B04215BFDEB00ECCAB6 /* libLowLevelParticles.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C1F4A0B215BFDEB00ECCAB6 /* libLowLevelParticles.a */; };
+		9C1F4B05215BFDEB00ECCAB6 /* libLowLevelDynamics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C1F4A0C215BFDEB00ECCAB6 /* libLowLevelDynamics.a */; };
+		9C1F4B06215BFDEB00ECCAB6 /* libPhysX3CharacterKinematic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C1F4A0D215BFDEB00ECCAB6 /* libPhysX3CharacterKinematic.a */; };
+		9C1F4B07215BFDEB00ECCAB6 /* libLowLevelCloth.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C1F4A0E215BFDEB00ECCAB6 /* libLowLevelCloth.a */; };
+		9C1F4B08215BFDEB00ECCAB6 /* libPhysX3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C1F4A0F215BFDEB00ECCAB6 /* libPhysX3.a */; };
+		9C1F4B09215BFDEB00ECCAB6 /* libLowLevelAABB.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C1F4A10215BFDEB00ECCAB6 /* libLowLevelAABB.a */; };
+		9C1F4B0A215BFDEB00ECCAB6 /* libPxPvdSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C1F4AC3215BFDEB00ECCAB6 /* libPxPvdSDK.a */; };
+		9C1F4B0B215BFDEB00ECCAB6 /* libPsFastXml.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C1F4AC4215BFDEB00ECCAB6 /* libPsFastXml.a */; };
+		9C1F4B0C215BFDEB00ECCAB6 /* libPxFoundation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C1F4AC5215BFDEB00ECCAB6 /* libPxFoundation.a */; };
+		9C1F4B0D215BFDEB00ECCAB6 /* libPxTask.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C1F4AC6215BFDEB00ECCAB6 /* libPxTask.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9C1F47B6215BF2DB00ECCAB6 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		9C1F45A0215BED1D00ECCAB6 /* main.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = main.h; sourceTree = "<group>"; };
+		9C1F45A1215BED1D00ECCAB6 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		9C1F45B0215BEDDE00ECCAB6 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
+		9C1F45B2215BEDEB00ECCAB6 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		9C1F47B8215BF2DB00ECCAB6 /* MRSS */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MRSS; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C1F4A04215BFDEB00ECCAB6 /* libPhysX3Cooking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPhysX3Cooking.a; sourceTree = "<group>"; };
+		9C1F4A05215BFDEB00ECCAB6 /* libPhysX3Common.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPhysX3Common.a; sourceTree = "<group>"; };
+		9C1F4A06215BFDEB00ECCAB6 /* libPhysX3Extensions.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPhysX3Extensions.a; sourceTree = "<group>"; };
+		9C1F4A07215BFDEB00ECCAB6 /* libSceneQuery.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSceneQuery.a; sourceTree = "<group>"; };
+		9C1F4A08215BFDEB00ECCAB6 /* libLowLevel.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libLowLevel.a; sourceTree = "<group>"; };
+		9C1F4A09215BFDEB00ECCAB6 /* libPhysX3Vehicle.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPhysX3Vehicle.a; sourceTree = "<group>"; };
+		9C1F4A0A215BFDEB00ECCAB6 /* libSimulationController.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSimulationController.a; sourceTree = "<group>"; };
+		9C1F4A0B215BFDEB00ECCAB6 /* libLowLevelParticles.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libLowLevelParticles.a; sourceTree = "<group>"; };
+		9C1F4A0C215BFDEB00ECCAB6 /* libLowLevelDynamics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libLowLevelDynamics.a; sourceTree = "<group>"; };
+		9C1F4A0D215BFDEB00ECCAB6 /* libPhysX3CharacterKinematic.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPhysX3CharacterKinematic.a; sourceTree = "<group>"; };
+		9C1F4A0E215BFDEB00ECCAB6 /* libLowLevelCloth.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libLowLevelCloth.a; sourceTree = "<group>"; };
+		9C1F4A0F215BFDEB00ECCAB6 /* libPhysX3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPhysX3.a; sourceTree = "<group>"; };
+		9C1F4A10215BFDEB00ECCAB6 /* libLowLevelAABB.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libLowLevelAABB.a; sourceTree = "<group>"; };
+		9C1F4A12215BFDEB00ECCAB6 /* PxArticulation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxArticulation.h; sourceTree = "<group>"; };
+		9C1F4A13215BFDEB00ECCAB6 /* PxShape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxShape.h; sourceTree = "<group>"; };
+		9C1F4A14215BFDEB00ECCAB6 /* PxImmediateMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxImmediateMode.h; sourceTree = "<group>"; };
+		9C1F4A15215BFDEB00ECCAB6 /* PxBatchQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxBatchQuery.h; sourceTree = "<group>"; };
+		9C1F4A16215BFDEB00ECCAB6 /* PxContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxContact.h; sourceTree = "<group>"; };
+		9C1F4A17215BFDEB00ECCAB6 /* PxSpatialIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxSpatialIndex.h; sourceTree = "<group>"; };
+		9C1F4A19215BFDEB00ECCAB6 /* PxBVH34MidphaseDesc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxBVH34MidphaseDesc.h; sourceTree = "<group>"; };
+		9C1F4A1A215BFDEB00ECCAB6 /* PxTriangleMeshDesc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxTriangleMeshDesc.h; sourceTree = "<group>"; };
+		9C1F4A1B215BFDEB00ECCAB6 /* Pxc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pxc.h; sourceTree = "<group>"; };
+		9C1F4A1C215BFDEB00ECCAB6 /* PxBVH33MidphaseDesc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxBVH33MidphaseDesc.h; sourceTree = "<group>"; };
+		9C1F4A1D215BFDEB00ECCAB6 /* PxCooking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxCooking.h; sourceTree = "<group>"; };
+		9C1F4A1E215BFDEB00ECCAB6 /* PxMidphaseDesc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxMidphaseDesc.h; sourceTree = "<group>"; };
+		9C1F4A1F215BFDEB00ECCAB6 /* PxConvexMeshDesc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxConvexMeshDesc.h; sourceTree = "<group>"; };
+		9C1F4A21215BFDEB00ECCAB6 /* PxGpu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxGpu.h; sourceTree = "<group>"; };
+		9C1F4A22215BFDEB00ECCAB6 /* PxParticleGpu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxParticleGpu.h; sourceTree = "<group>"; };
+		9C1F4A23215BFDEB00ECCAB6 /* PxDeletionListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxDeletionListener.h; sourceTree = "<group>"; };
+		9C1F4A25215BFDEB00ECCAB6 /* PxVehicleDriveTank.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxVehicleDriveTank.h; sourceTree = "<group>"; };
+		9C1F4A26215BFDEB00ECCAB6 /* PxVehicleNoDrive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxVehicleNoDrive.h; sourceTree = "<group>"; };
+		9C1F4A27215BFDEB00ECCAB6 /* PxVehicleUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxVehicleUtil.h; sourceTree = "<group>"; };
+		9C1F4A28215BFDEB00ECCAB6 /* PxVehicleSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxVehicleSDK.h; sourceTree = "<group>"; };
+		9C1F4A29215BFDEB00ECCAB6 /* PxVehicleTireFriction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxVehicleTireFriction.h; sourceTree = "<group>"; };
+		9C1F4A2A215BFDEB00ECCAB6 /* PxVehicleComponents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxVehicleComponents.h; sourceTree = "<group>"; };
+		9C1F4A2B215BFDEB00ECCAB6 /* PxVehicleUtilSetup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxVehicleUtilSetup.h; sourceTree = "<group>"; };
+		9C1F4A2C215BFDEB00ECCAB6 /* PxVehicleDriveNW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxVehicleDriveNW.h; sourceTree = "<group>"; };
+		9C1F4A2D215BFDEB00ECCAB6 /* PxVehicleShaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxVehicleShaders.h; sourceTree = "<group>"; };
+		9C1F4A2E215BFDEB00ECCAB6 /* PxVehicleUtilTelemetry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxVehicleUtilTelemetry.h; sourceTree = "<group>"; };
+		9C1F4A2F215BFDEB00ECCAB6 /* PxVehicleDrive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxVehicleDrive.h; sourceTree = "<group>"; };
+		9C1F4A30215BFDEB00ECCAB6 /* PxVehicleUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxVehicleUpdate.h; sourceTree = "<group>"; };
+		9C1F4A31215BFDEB00ECCAB6 /* PxVehicleDrive4W.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxVehicleDrive4W.h; sourceTree = "<group>"; };
+		9C1F4A32215BFDEB00ECCAB6 /* PxVehicleUtilControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxVehicleUtilControl.h; sourceTree = "<group>"; };
+		9C1F4A33215BFDEB00ECCAB6 /* PxVehicleWheels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxVehicleWheels.h; sourceTree = "<group>"; };
+		9C1F4A34215BFDEB00ECCAB6 /* PxRigidBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxRigidBody.h; sourceTree = "<group>"; };
+		9C1F4A36215BFDEB00ECCAB6 /* GuContactBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuContactBuffer.h; sourceTree = "<group>"; };
+		9C1F4A37215BFDEB00ECCAB6 /* GuContactPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuContactPoint.h; sourceTree = "<group>"; };
+		9C1F4A39215BFDEB00ECCAB6 /* PxControllerBehavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxControllerBehavior.h; sourceTree = "<group>"; };
+		9C1F4A3A215BFDEB00ECCAB6 /* PxExtended.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxExtended.h; sourceTree = "<group>"; };
+		9C1F4A3B215BFDEB00ECCAB6 /* PxControllerObstacles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxControllerObstacles.h; sourceTree = "<group>"; };
+		9C1F4A3C215BFDEB00ECCAB6 /* PxCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxCharacter.h; sourceTree = "<group>"; };
+		9C1F4A3D215BFDEB00ECCAB6 /* PxCapsuleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxCapsuleController.h; sourceTree = "<group>"; };
+		9C1F4A3E215BFDEB00ECCAB6 /* PxController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxController.h; sourceTree = "<group>"; };
+		9C1F4A3F215BFDEB00ECCAB6 /* PxControllerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxControllerManager.h; sourceTree = "<group>"; };
+		9C1F4A40215BFDEB00ECCAB6 /* PxBoxController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxBoxController.h; sourceTree = "<group>"; };
+		9C1F4A41215BFDEB00ECCAB6 /* PxBroadPhase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxBroadPhase.h; sourceTree = "<group>"; };
+		9C1F4A42215BFDEB00ECCAB6 /* PxPhysicsVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxPhysicsVersion.h; sourceTree = "<group>"; };
+		9C1F4A43215BFDEB00ECCAB6 /* PxClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxClient.h; sourceTree = "<group>"; };
+		9C1F4A44215BFDEB00ECCAB6 /* PxArticulationJoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxArticulationJoint.h; sourceTree = "<group>"; };
+		9C1F4A45215BFDEB00ECCAB6 /* PxPhysics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxPhysics.h; sourceTree = "<group>"; };
+		9C1F4A47215BFDEB00ECCAB6 /* PxParticleBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxParticleBase.h; sourceTree = "<group>"; };
+		9C1F4A48215BFDEB00ECCAB6 /* PxParticleSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxParticleSystem.h; sourceTree = "<group>"; };
+		9C1F4A49215BFDEB00ECCAB6 /* PxParticleFluid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxParticleFluid.h; sourceTree = "<group>"; };
+		9C1F4A4A215BFDEB00ECCAB6 /* PxParticleFlag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxParticleFlag.h; sourceTree = "<group>"; };
+		9C1F4A4B215BFDEB00ECCAB6 /* PxParticleCreationData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxParticleCreationData.h; sourceTree = "<group>"; };
+		9C1F4A4C215BFDEB00ECCAB6 /* PxParticleBaseFlag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxParticleBaseFlag.h; sourceTree = "<group>"; };
+		9C1F4A4D215BFDEB00ECCAB6 /* PxParticleFluidReadData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxParticleFluidReadData.h; sourceTree = "<group>"; };
+		9C1F4A4E215BFDEB00ECCAB6 /* PxParticleReadData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxParticleReadData.h; sourceTree = "<group>"; };
+		9C1F4A50215BFDEB00ECCAB6 /* PxSolverDefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxSolverDefs.h; sourceTree = "<group>"; };
+		9C1F4A51215BFDEB00ECCAB6 /* PxVolumeCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxVolumeCache.h; sourceTree = "<group>"; };
+		9C1F4A52215BFDEB00ECCAB6 /* PxArticulationLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxArticulationLink.h; sourceTree = "<group>"; };
+		9C1F4A54215BFDEB00ECCAB6 /* PxRepXSimpleType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxRepXSimpleType.h; sourceTree = "<group>"; };
+		9C1F4A55215BFDEB00ECCAB6 /* PxDefaultCpuDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxDefaultCpuDispatcher.h; sourceTree = "<group>"; };
+		9C1F4A56215BFDEB00ECCAB6 /* PxDistanceJoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxDistanceJoint.h; sourceTree = "<group>"; };
+		9C1F4A57215BFDEB00ECCAB6 /* PxConstraintExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxConstraintExt.h; sourceTree = "<group>"; };
+		9C1F4A58215BFDEB00ECCAB6 /* PxBinaryConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxBinaryConverter.h; sourceTree = "<group>"; };
+		9C1F4A59215BFDEB00ECCAB6 /* PxRigidBodyExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxRigidBodyExt.h; sourceTree = "<group>"; };
+		9C1F4A5A215BFDEB00ECCAB6 /* PxJoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxJoint.h; sourceTree = "<group>"; };
+		9C1F4A5B215BFDEB00ECCAB6 /* PxRaycastCCD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxRaycastCCD.h; sourceTree = "<group>"; };
+		9C1F4A5C215BFDEB00ECCAB6 /* PxJointLimit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxJointLimit.h; sourceTree = "<group>"; };
+		9C1F4A5D215BFDEB00ECCAB6 /* PxSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxSerialization.h; sourceTree = "<group>"; };
+		9C1F4A5E215BFDEB00ECCAB6 /* PxClothTetherCooker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxClothTetherCooker.h; sourceTree = "<group>"; };
+		9C1F4A5F215BFDEB00ECCAB6 /* PxRepXSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxRepXSerializer.h; sourceTree = "<group>"; };
+		9C1F4A60215BFDEB00ECCAB6 /* PxSimpleFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxSimpleFactory.h; sourceTree = "<group>"; };
+		9C1F4A61215BFDEB00ECCAB6 /* PxDefaultSimulationFilterShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxDefaultSimulationFilterShader.h; sourceTree = "<group>"; };
+		9C1F4A62215BFDEB00ECCAB6 /* PxPrismaticJoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxPrismaticJoint.h; sourceTree = "<group>"; };
+		9C1F4A63215BFDEB00ECCAB6 /* PxSmoothNormals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxSmoothNormals.h; sourceTree = "<group>"; };
+		9C1F4A64215BFDEB00ECCAB6 /* PxClothMeshQuadifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxClothMeshQuadifier.h; sourceTree = "<group>"; };
+		9C1F4A65215BFDEB00ECCAB6 /* PxClothMeshDesc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxClothMeshDesc.h; sourceTree = "<group>"; };
+		9C1F4A66215BFDEB00ECCAB6 /* PxRigidActorExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxRigidActorExt.h; sourceTree = "<group>"; };
+		9C1F4A67215BFDEB00ECCAB6 /* PxMassProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxMassProperties.h; sourceTree = "<group>"; };
+		9C1F4A68215BFDEB00ECCAB6 /* PxBroadPhaseExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxBroadPhaseExt.h; sourceTree = "<group>"; };
+		9C1F4A69215BFDEB00ECCAB6 /* PxCollectionExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxCollectionExt.h; sourceTree = "<group>"; };
+		9C1F4A6A215BFDEB00ECCAB6 /* PxStringTableExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxStringTableExt.h; sourceTree = "<group>"; };
+		9C1F4A6B215BFDEB00ECCAB6 /* PxExtensionsAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxExtensionsAPI.h; sourceTree = "<group>"; };
+		9C1F4A6C215BFDEB00ECCAB6 /* PxParticleExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxParticleExt.h; sourceTree = "<group>"; };
+		9C1F4A6D215BFDEB00ECCAB6 /* PxDefaultAllocator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxDefaultAllocator.h; sourceTree = "<group>"; };
+		9C1F4A6E215BFDEB00ECCAB6 /* PxClothFabricCooker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxClothFabricCooker.h; sourceTree = "<group>"; };
+		9C1F4A6F215BFDEB00ECCAB6 /* PxSphericalJoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxSphericalJoint.h; sourceTree = "<group>"; };
+		9C1F4A70215BFDEB00ECCAB6 /* PxShapeExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxShapeExt.h; sourceTree = "<group>"; };
+		9C1F4A71215BFDEB00ECCAB6 /* PxTriangleMeshExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxTriangleMeshExt.h; sourceTree = "<group>"; };
+		9C1F4A72215BFDEB00ECCAB6 /* PxDefaultStreams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxDefaultStreams.h; sourceTree = "<group>"; };
+		9C1F4A73215BFDEB00ECCAB6 /* PxD6Joint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxD6Joint.h; sourceTree = "<group>"; };
+		9C1F4A74215BFDEB00ECCAB6 /* PxDefaultErrorCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxDefaultErrorCallback.h; sourceTree = "<group>"; };
+		9C1F4A75215BFDEB00ECCAB6 /* PxRevoluteJoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxRevoluteJoint.h; sourceTree = "<group>"; };
+		9C1F4A76215BFDEB00ECCAB6 /* PxSceneQueryExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxSceneQueryExt.h; sourceTree = "<group>"; };
+		9C1F4A77215BFDEB00ECCAB6 /* PxFixedJoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxFixedJoint.h; sourceTree = "<group>"; };
+		9C1F4A78215BFDEB00ECCAB6 /* PxConvexMeshExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxConvexMeshExt.h; sourceTree = "<group>"; };
+		9C1F4A79215BFDEB00ECCAB6 /* PxScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxScene.h; sourceTree = "<group>"; };
+		9C1F4A7B215BFDEB00ECCAB6 /* PxCoreUtilityTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxCoreUtilityTypes.h; sourceTree = "<group>"; };
+		9C1F4A7C215BFDEB00ECCAB6 /* PxMetaDataFlags.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxMetaDataFlags.h; sourceTree = "<group>"; };
+		9C1F4A7D215BFDEB00ECCAB6 /* PxSerialFramework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxSerialFramework.h; sourceTree = "<group>"; };
+		9C1F4A7E215BFDEB00ECCAB6 /* PxStringTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxStringTable.h; sourceTree = "<group>"; };
+		9C1F4A7F215BFDEB00ECCAB6 /* PxTypeInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxTypeInfo.h; sourceTree = "<group>"; };
+		9C1F4A80215BFDEB00ECCAB6 /* PxBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxBase.h; sourceTree = "<group>"; };
+		9C1F4A81215BFDEB00ECCAB6 /* PxCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxCollection.h; sourceTree = "<group>"; };
+		9C1F4A82215BFDEB00ECCAB6 /* PxPhysicsInsertionCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxPhysicsInsertionCallback.h; sourceTree = "<group>"; };
+		9C1F4A83215BFDEB00ECCAB6 /* PxPhysXCommonConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxPhysXCommonConfig.h; sourceTree = "<group>"; };
+		9C1F4A84215BFDEB00ECCAB6 /* PxSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxSerializer.h; sourceTree = "<group>"; };
+		9C1F4A86215BFDEB00ECCAB6 /* PxWindowsDelayLoadHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxWindowsDelayLoadHook.h; sourceTree = "<group>"; };
+		9C1F4A87215BFDEB00ECCAB6 /* PxTolerancesScale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxTolerancesScale.h; sourceTree = "<group>"; };
+		9C1F4A88215BFDEB00ECCAB6 /* PxRenderBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxRenderBuffer.h; sourceTree = "<group>"; };
+		9C1F4A89215BFDEB00ECCAB6 /* PxMetaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxMetaData.h; sourceTree = "<group>"; };
+		9C1F4A8A215BFDEB00ECCAB6 /* PxContactModifyCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxContactModifyCallback.h; sourceTree = "<group>"; };
+		9C1F4A8B215BFDEB00ECCAB6 /* PxSceneLock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxSceneLock.h; sourceTree = "<group>"; };
+		9C1F4A8C215BFDEB00ECCAB6 /* PxPhysicsAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxPhysicsAPI.h; sourceTree = "<group>"; };
+		9C1F4A8D215BFDEB00ECCAB6 /* PxPhysicsSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxPhysicsSerialization.h; sourceTree = "<group>"; };
+		9C1F4A8E215BFDEB00ECCAB6 /* PxQueryReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxQueryReport.h; sourceTree = "<group>"; };
+		9C1F4A8F215BFDEB00ECCAB6 /* PxLockedData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxLockedData.h; sourceTree = "<group>"; };
+		9C1F4A90215BFDEB00ECCAB6 /* PxSimulationEventCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxSimulationEventCallback.h; sourceTree = "<group>"; };
+		9C1F4A91215BFDEB00ECCAB6 /* PxQueryFiltering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxQueryFiltering.h; sourceTree = "<group>"; };
+		9C1F4A92215BFDEB00ECCAB6 /* PxBatchQueryDesc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxBatchQueryDesc.h; sourceTree = "<group>"; };
+		9C1F4A93215BFDEB00ECCAB6 /* PxRigidActor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxRigidActor.h; sourceTree = "<group>"; };
+		9C1F4A94215BFDEB00ECCAB6 /* PxPruningStructure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxPruningStructure.h; sourceTree = "<group>"; };
+		9C1F4A95215BFDEB00ECCAB6 /* PxAggregate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxAggregate.h; sourceTree = "<group>"; };
+		9C1F4A96215BFDEB00ECCAB6 /* PxMaterial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxMaterial.h; sourceTree = "<group>"; };
+		9C1F4A98215BFDEB00ECCAB6 /* PxClothFabric.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxClothFabric.h; sourceTree = "<group>"; };
+		9C1F4A99215BFDEB00ECCAB6 /* PxClothTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxClothTypes.h; sourceTree = "<group>"; };
+		9C1F4A9A215BFDEB00ECCAB6 /* PxClothParticleData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxClothParticleData.h; sourceTree = "<group>"; };
+		9C1F4A9B215BFDEB00ECCAB6 /* PxClothCollisionData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxClothCollisionData.h; sourceTree = "<group>"; };
+		9C1F4A9C215BFDEB00ECCAB6 /* PxCloth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxCloth.h; sourceTree = "<group>"; };
+		9C1F4A9E215BFDEB00ECCAB6 /* PxPvdSceneClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxPvdSceneClient.h; sourceTree = "<group>"; };
+		9C1F4A9F215BFDEB00ECCAB6 /* PxConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxConstraint.h; sourceTree = "<group>"; };
+		9C1F4AA0215BFDEB00ECCAB6 /* PxForceMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxForceMode.h; sourceTree = "<group>"; };
+		9C1F4AA2215BFDEB00ECCAB6 /* PxTriangleMeshGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxTriangleMeshGeometry.h; sourceTree = "<group>"; };
+		9C1F4AA3215BFDEB00ECCAB6 /* PxMeshScale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxMeshScale.h; sourceTree = "<group>"; };
+		9C1F4AA4215BFDEB00ECCAB6 /* PxHeightField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxHeightField.h; sourceTree = "<group>"; };
+		9C1F4AA5215BFDEB00ECCAB6 /* PxGeometryHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxGeometryHelpers.h; sourceTree = "<group>"; };
+		9C1F4AA6215BFDEB00ECCAB6 /* PxMeshQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxMeshQuery.h; sourceTree = "<group>"; };
+		9C1F4AA7215BFDEB00ECCAB6 /* PxPlaneGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxPlaneGeometry.h; sourceTree = "<group>"; };
+		9C1F4AA8215BFDEB00ECCAB6 /* PxBoxGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxBoxGeometry.h; sourceTree = "<group>"; };
+		9C1F4AA9215BFDEB00ECCAB6 /* PxTriangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxTriangle.h; sourceTree = "<group>"; };
+		9C1F4AAA215BFDEB00ECCAB6 /* PxHeightFieldSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxHeightFieldSample.h; sourceTree = "<group>"; };
+		9C1F4AAB215BFDEB00ECCAB6 /* PxGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxGeometry.h; sourceTree = "<group>"; };
+		9C1F4AAC215BFDEB00ECCAB6 /* PxCapsuleGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxCapsuleGeometry.h; sourceTree = "<group>"; };
+		9C1F4AAD215BFDEB00ECCAB6 /* PxHeightFieldFlag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxHeightFieldFlag.h; sourceTree = "<group>"; };
+		9C1F4AAE215BFDEB00ECCAB6 /* PxHeightFieldGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxHeightFieldGeometry.h; sourceTree = "<group>"; };
+		9C1F4AAF215BFDEB00ECCAB6 /* PxTriangleMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxTriangleMesh.h; sourceTree = "<group>"; };
+		9C1F4AB0215BFDEB00ECCAB6 /* PxGeometryQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxGeometryQuery.h; sourceTree = "<group>"; };
+		9C1F4AB1215BFDEB00ECCAB6 /* PxConvexMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxConvexMesh.h; sourceTree = "<group>"; };
+		9C1F4AB2215BFDEB00ECCAB6 /* PxSimpleTriangleMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxSimpleTriangleMesh.h; sourceTree = "<group>"; };
+		9C1F4AB3215BFDEB00ECCAB6 /* PxConvexMeshGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxConvexMeshGeometry.h; sourceTree = "<group>"; };
+		9C1F4AB4215BFDEB00ECCAB6 /* PxHeightFieldDesc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxHeightFieldDesc.h; sourceTree = "<group>"; };
+		9C1F4AB5215BFDEB00ECCAB6 /* PxSphereGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxSphereGeometry.h; sourceTree = "<group>"; };
+		9C1F4AB6215BFDEB00ECCAB6 /* PxFiltering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxFiltering.h; sourceTree = "<group>"; };
+		9C1F4AB7215BFDEB00ECCAB6 /* PxConstraintDesc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxConstraintDesc.h; sourceTree = "<group>"; };
+		9C1F4AB8215BFDEB00ECCAB6 /* PxSceneDesc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxSceneDesc.h; sourceTree = "<group>"; };
+		9C1F4AB9215BFDEB00ECCAB6 /* PxSimulationStatistics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxSimulationStatistics.h; sourceTree = "<group>"; };
+		9C1F4ABA215BFDEB00ECCAB6 /* PxRigidStatic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxRigidStatic.h; sourceTree = "<group>"; };
+		9C1F4ABB215BFDEB00ECCAB6 /* PxPhysXConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxPhysXConfig.h; sourceTree = "<group>"; };
+		9C1F4ABC215BFDEB00ECCAB6 /* PxRigidDynamic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxRigidDynamic.h; sourceTree = "<group>"; };
+		9C1F4ABD215BFDEB00ECCAB6 /* PxVisualizationParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxVisualizationParameter.h; sourceTree = "<group>"; };
+		9C1F4ABF215BFDEB00ECCAB6 /* PxCollisionDefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxCollisionDefs.h; sourceTree = "<group>"; };
+		9C1F4AC0215BFDEB00ECCAB6 /* PxActor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxActor.h; sourceTree = "<group>"; };
+		9C1F4AC3215BFDEB00ECCAB6 /* libPxPvdSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPxPvdSDK.a; sourceTree = "<group>"; };
+		9C1F4AC4215BFDEB00ECCAB6 /* libPsFastXml.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPsFastXml.a; sourceTree = "<group>"; };
+		9C1F4AC5215BFDEB00ECCAB6 /* libPxFoundation.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPxFoundation.a; sourceTree = "<group>"; };
+		9C1F4AC6215BFDEB00ECCAB6 /* libPxTask.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPxTask.a; sourceTree = "<group>"; };
+		9C1F4AC9215BFDEB00ECCAB6 /* PxFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxFoundation.h; sourceTree = "<group>"; };
+		9C1F4ACA215BFDEB00ECCAB6 /* PxVec4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxVec4.h; sourceTree = "<group>"; };
+		9C1F4ACB215BFDEB00ECCAB6 /* PxQuat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxQuat.h; sourceTree = "<group>"; };
+		9C1F4ACC215BFDEB00ECCAB6 /* PxAllocatorCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxAllocatorCallback.h; sourceTree = "<group>"; };
+		9C1F4ACD215BFDEB00ECCAB6 /* PxStrideIterator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxStrideIterator.h; sourceTree = "<group>"; };
+		9C1F4ACE215BFDEB00ECCAB6 /* PxPlane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxPlane.h; sourceTree = "<group>"; };
+		9C1F4ACF215BFDEB00ECCAB6 /* PxErrors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxErrors.h; sourceTree = "<group>"; };
+		9C1F4AD0215BFDEB00ECCAB6 /* PxTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxTransform.h; sourceTree = "<group>"; };
+		9C1F4AD1215BFDEB00ECCAB6 /* PxFlags.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxFlags.h; sourceTree = "<group>"; };
+		9C1F4AD2215BFDEB00ECCAB6 /* PxMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxMath.h; sourceTree = "<group>"; };
+		9C1F4AD3215BFDEB00ECCAB6 /* PxIntrinsics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxIntrinsics.h; sourceTree = "<group>"; };
+		9C1F4AD4215BFDEB00ECCAB6 /* PxMathUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxMathUtils.h; sourceTree = "<group>"; };
+		9C1F4AD5215BFDEB00ECCAB6 /* PxProfiler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxProfiler.h; sourceTree = "<group>"; };
+		9C1F4AD6215BFDEB00ECCAB6 /* PxMat44.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxMat44.h; sourceTree = "<group>"; };
+		9C1F4AD7215BFDEB00ECCAB6 /* PxSimpleTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxSimpleTypes.h; sourceTree = "<group>"; };
+		9C1F4AD8215BFDEB00ECCAB6 /* PxVec3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxVec3.h; sourceTree = "<group>"; };
+		9C1F4AD9215BFDEB00ECCAB6 /* PxBitAndData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxBitAndData.h; sourceTree = "<group>"; };
+		9C1F4ADA215BFDEB00ECCAB6 /* Px.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Px.h; sourceTree = "<group>"; };
+		9C1F4ADB215BFDEB00ECCAB6 /* PxErrorCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxErrorCallback.h; sourceTree = "<group>"; };
+		9C1F4ADD215BFDEB00ECCAB6 /* PxUnixIntrinsics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxUnixIntrinsics.h; sourceTree = "<group>"; };
+		9C1F4ADE215BFDEB00ECCAB6 /* PxVec2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxVec2.h; sourceTree = "<group>"; };
+		9C1F4ADF215BFDEB00ECCAB6 /* PxAssert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxAssert.h; sourceTree = "<group>"; };
+		9C1F4AE0215BFDEB00ECCAB6 /* PxFoundationVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxFoundationVersion.h; sourceTree = "<group>"; };
+		9C1F4AE1215BFDEB00ECCAB6 /* PxIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxIO.h; sourceTree = "<group>"; };
+		9C1F4AE2215BFDEB00ECCAB6 /* PxBounds3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxBounds3.h; sourceTree = "<group>"; };
+		9C1F4AE3215BFDEB00ECCAB6 /* PxMemory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxMemory.h; sourceTree = "<group>"; };
+		9C1F4AE5215BFDEB00ECCAB6 /* PxWindowsIntrinsics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxWindowsIntrinsics.h; sourceTree = "<group>"; };
+		9C1F4AE6215BFDEB00ECCAB6 /* PxWindowsFoundationDelayLoadHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxWindowsFoundationDelayLoadHook.h; sourceTree = "<group>"; };
+		9C1F4AE7215BFDEB00ECCAB6 /* PxUnionCast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxUnionCast.h; sourceTree = "<group>"; };
+		9C1F4AE8215BFDEB00ECCAB6 /* PxPreprocessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxPreprocessor.h; sourceTree = "<group>"; };
+		9C1F4AE9215BFDEB00ECCAB6 /* PxMat33.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxMat33.h; sourceTree = "<group>"; };
+		9C1F4AEB215BFDEB00ECCAB6 /* PxCudaContextManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxCudaContextManager.h; sourceTree = "<group>"; };
+		9C1F4AEC215BFDEB00ECCAB6 /* PxGpuCopyDescQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxGpuCopyDescQueue.h; sourceTree = "<group>"; };
+		9C1F4AED215BFDEB00ECCAB6 /* PxCudaMemoryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxCudaMemoryManager.h; sourceTree = "<group>"; };
+		9C1F4AEE215BFDEB00ECCAB6 /* PxGpuCopyDesc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxGpuCopyDesc.h; sourceTree = "<group>"; };
+		9C1F4AF0215BFDEB00ECCAB6 /* PxFileBuf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxFileBuf.h; sourceTree = "<group>"; };
+		9C1F4AF2215BFDEB00ECCAB6 /* PxTaskDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxTaskDefine.h; sourceTree = "<group>"; };
+		9C1F4AF3215BFDEB00ECCAB6 /* PxTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxTask.h; sourceTree = "<group>"; };
+		9C1F4AF4215BFDEB00ECCAB6 /* PxGpuDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxGpuDispatcher.h; sourceTree = "<group>"; };
+		9C1F4AF5215BFDEB00ECCAB6 /* PxCpuDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxCpuDispatcher.h; sourceTree = "<group>"; };
+		9C1F4AF6215BFDEB00ECCAB6 /* PxTaskManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxTaskManager.h; sourceTree = "<group>"; };
+		9C1F4AF7215BFDEB00ECCAB6 /* PxGpuTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxGpuTask.h; sourceTree = "<group>"; };
+		9C1F4AF9215BFDEB00ECCAB6 /* PxPvdTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxPvdTransport.h; sourceTree = "<group>"; };
+		9C1F4AFA215BFDEB00ECCAB6 /* PxPvd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxPvd.h; sourceTree = "<group>"; };
+		9C1F4AFC215BFDEB00ECCAB6 /* PxWindowsPvdDelayLoadHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxWindowsPvdDelayLoadHook.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9C1F47B5215BF2DB00ECCAB6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C1F47C0215BF34300ECCAB6 /* OpenGL.framework in Frameworks */,
+				9C1F47BF215BF33E00ECCAB6 /* GLUT.framework in Frameworks */,
+				9C1F4B06215BFDEB00ECCAB6 /* libPhysX3CharacterKinematic.a in Frameworks */,
+				9C1F4AFD215BFDEB00ECCAB6 /* libPhysX3Cooking.a in Frameworks */,
+				9C1F4B0C215BFDEB00ECCAB6 /* libPxFoundation.a in Frameworks */,
+				9C1F4B08215BFDEB00ECCAB6 /* libPhysX3.a in Frameworks */,
+				9C1F4B04215BFDEB00ECCAB6 /* libLowLevelParticles.a in Frameworks */,
+				9C1F4B00215BFDEB00ECCAB6 /* libSceneQuery.a in Frameworks */,
+				9C1F4B05215BFDEB00ECCAB6 /* libLowLevelDynamics.a in Frameworks */,
+				9C1F4B0A215BFDEB00ECCAB6 /* libPxPvdSDK.a in Frameworks */,
+				9C1F4AFF215BFDEB00ECCAB6 /* libPhysX3Extensions.a in Frameworks */,
+				9C1F4B07215BFDEB00ECCAB6 /* libLowLevelCloth.a in Frameworks */,
+				9C1F4B0D215BFDEB00ECCAB6 /* libPxTask.a in Frameworks */,
+				9C1F4AFE215BFDEB00ECCAB6 /* libPhysX3Common.a in Frameworks */,
+				9C1F4B01215BFDEB00ECCAB6 /* libLowLevel.a in Frameworks */,
+				9C1F4B03215BFDEB00ECCAB6 /* libSimulationController.a in Frameworks */,
+				9C1F4B0B215BFDEB00ECCAB6 /* libPsFastXml.a in Frameworks */,
+				9C1F4B09215BFDEB00ECCAB6 /* libLowLevelAABB.a in Frameworks */,
+				9C1F4B02215BFDEB00ECCAB6 /* libPhysX3Vehicle.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
 /* Begin PBXGroup section */
 		9C1F4597215BECBF00ECCAB6 = {
 			isa = PBXGroup;
 			children = (
+				9C1F459F215BED1D00ECCAB6 /* source */,
+				9C1F45AF215BEDDE00ECCAB6 /* Frameworks */,
+				9C1F45A7215BED6500ECCAB6 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
+		9C1F459F215BED1D00ECCAB6 /* source */ = {
+			isa = PBXGroup;
+			children = (
+				9C1F45A0215BED1D00ECCAB6 /* main.h */,
+				9C1F45A1215BED1D00ECCAB6 /* main.cpp */,
+			);
+			path = source;
+			sourceTree = "<group>";
+		};
+		9C1F45A7215BED6500ECCAB6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9C1F47B8215BF2DB00ECCAB6 /* MRSS */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9C1F45AF215BEDDE00ECCAB6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9C1F4A02215BFDEB00ECCAB6 /* PhysX_3.4 */,
+				9C1F45B2215BEDEB00ECCAB6 /* OpenGL.framework */,
+				9C1F45B0215BEDDE00ECCAB6 /* GLUT.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9C1F4A02215BFDEB00ECCAB6 /* PhysX_3.4 */ = {
+			isa = PBXGroup;
+			children = (
+				9C1F4A03215BFDEB00ECCAB6 /* osx64 */,
+				9C1F4A11215BFDEB00ECCAB6 /* include */,
+				9C1F4AC1215BFDEB00ECCAB6 /* PxShared */,
+			);
+			path = PhysX_3.4;
+			sourceTree = "<group>";
+		};
+		9C1F4A03215BFDEB00ECCAB6 /* osx64 */ = {
+			isa = PBXGroup;
+			children = (
+				9C1F4A04215BFDEB00ECCAB6 /* libPhysX3Cooking.a */,
+				9C1F4A05215BFDEB00ECCAB6 /* libPhysX3Common.a */,
+				9C1F4A06215BFDEB00ECCAB6 /* libPhysX3Extensions.a */,
+				9C1F4A07215BFDEB00ECCAB6 /* libSceneQuery.a */,
+				9C1F4A08215BFDEB00ECCAB6 /* libLowLevel.a */,
+				9C1F4A09215BFDEB00ECCAB6 /* libPhysX3Vehicle.a */,
+				9C1F4A0A215BFDEB00ECCAB6 /* libSimulationController.a */,
+				9C1F4A0B215BFDEB00ECCAB6 /* libLowLevelParticles.a */,
+				9C1F4A0C215BFDEB00ECCAB6 /* libLowLevelDynamics.a */,
+				9C1F4A0D215BFDEB00ECCAB6 /* libPhysX3CharacterKinematic.a */,
+				9C1F4A0E215BFDEB00ECCAB6 /* libLowLevelCloth.a */,
+				9C1F4A0F215BFDEB00ECCAB6 /* libPhysX3.a */,
+				9C1F4A10215BFDEB00ECCAB6 /* libLowLevelAABB.a */,
+			);
+			path = osx64;
+			sourceTree = "<group>";
+		};
+		9C1F4A11215BFDEB00ECCAB6 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				9C1F4A12215BFDEB00ECCAB6 /* PxArticulation.h */,
+				9C1F4A13215BFDEB00ECCAB6 /* PxShape.h */,
+				9C1F4A14215BFDEB00ECCAB6 /* PxImmediateMode.h */,
+				9C1F4A15215BFDEB00ECCAB6 /* PxBatchQuery.h */,
+				9C1F4A16215BFDEB00ECCAB6 /* PxContact.h */,
+				9C1F4A17215BFDEB00ECCAB6 /* PxSpatialIndex.h */,
+				9C1F4A18215BFDEB00ECCAB6 /* cooking */,
+				9C1F4A20215BFDEB00ECCAB6 /* gpu */,
+				9C1F4A23215BFDEB00ECCAB6 /* PxDeletionListener.h */,
+				9C1F4A24215BFDEB00ECCAB6 /* vehicle */,
+				9C1F4A34215BFDEB00ECCAB6 /* PxRigidBody.h */,
+				9C1F4A35215BFDEB00ECCAB6 /* GeomUtils */,
+				9C1F4A38215BFDEB00ECCAB6 /* characterkinematic */,
+				9C1F4A41215BFDEB00ECCAB6 /* PxBroadPhase.h */,
+				9C1F4A42215BFDEB00ECCAB6 /* PxPhysicsVersion.h */,
+				9C1F4A43215BFDEB00ECCAB6 /* PxClient.h */,
+				9C1F4A44215BFDEB00ECCAB6 /* PxArticulationJoint.h */,
+				9C1F4A45215BFDEB00ECCAB6 /* PxPhysics.h */,
+				9C1F4A46215BFDEB00ECCAB6 /* particles */,
+				9C1F4A4F215BFDEB00ECCAB6 /* solver */,
+				9C1F4A51215BFDEB00ECCAB6 /* PxVolumeCache.h */,
+				9C1F4A52215BFDEB00ECCAB6 /* PxArticulationLink.h */,
+				9C1F4A53215BFDEB00ECCAB6 /* extensions */,
+				9C1F4A79215BFDEB00ECCAB6 /* PxScene.h */,
+				9C1F4A7A215BFDEB00ECCAB6 /* common */,
+				9C1F4A8A215BFDEB00ECCAB6 /* PxContactModifyCallback.h */,
+				9C1F4A8B215BFDEB00ECCAB6 /* PxSceneLock.h */,
+				9C1F4A8C215BFDEB00ECCAB6 /* PxPhysicsAPI.h */,
+				9C1F4A8D215BFDEB00ECCAB6 /* PxPhysicsSerialization.h */,
+				9C1F4A8E215BFDEB00ECCAB6 /* PxQueryReport.h */,
+				9C1F4A8F215BFDEB00ECCAB6 /* PxLockedData.h */,
+				9C1F4A90215BFDEB00ECCAB6 /* PxSimulationEventCallback.h */,
+				9C1F4A91215BFDEB00ECCAB6 /* PxQueryFiltering.h */,
+				9C1F4A92215BFDEB00ECCAB6 /* PxBatchQueryDesc.h */,
+				9C1F4A93215BFDEB00ECCAB6 /* PxRigidActor.h */,
+				9C1F4A94215BFDEB00ECCAB6 /* PxPruningStructure.h */,
+				9C1F4A95215BFDEB00ECCAB6 /* PxAggregate.h */,
+				9C1F4A96215BFDEB00ECCAB6 /* PxMaterial.h */,
+				9C1F4A97215BFDEB00ECCAB6 /* cloth */,
+				9C1F4A9D215BFDEB00ECCAB6 /* pvd */,
+				9C1F4A9F215BFDEB00ECCAB6 /* PxConstraint.h */,
+				9C1F4AA0215BFDEB00ECCAB6 /* PxForceMode.h */,
+				9C1F4AA1215BFDEB00ECCAB6 /* geometry */,
+				9C1F4AB6215BFDEB00ECCAB6 /* PxFiltering.h */,
+				9C1F4AB7215BFDEB00ECCAB6 /* PxConstraintDesc.h */,
+				9C1F4AB8215BFDEB00ECCAB6 /* PxSceneDesc.h */,
+				9C1F4AB9215BFDEB00ECCAB6 /* PxSimulationStatistics.h */,
+				9C1F4ABA215BFDEB00ECCAB6 /* PxRigidStatic.h */,
+				9C1F4ABB215BFDEB00ECCAB6 /* PxPhysXConfig.h */,
+				9C1F4ABC215BFDEB00ECCAB6 /* PxRigidDynamic.h */,
+				9C1F4ABD215BFDEB00ECCAB6 /* PxVisualizationParameter.h */,
+				9C1F4ABE215BFDEB00ECCAB6 /* collision */,
+				9C1F4AC0215BFDEB00ECCAB6 /* PxActor.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		9C1F4A18215BFDEB00ECCAB6 /* cooking */ = {
+			isa = PBXGroup;
+			children = (
+				9C1F4A19215BFDEB00ECCAB6 /* PxBVH34MidphaseDesc.h */,
+				9C1F4A1A215BFDEB00ECCAB6 /* PxTriangleMeshDesc.h */,
+				9C1F4A1B215BFDEB00ECCAB6 /* Pxc.h */,
+				9C1F4A1C215BFDEB00ECCAB6 /* PxBVH33MidphaseDesc.h */,
+				9C1F4A1D215BFDEB00ECCAB6 /* PxCooking.h */,
+				9C1F4A1E215BFDEB00ECCAB6 /* PxMidphaseDesc.h */,
+				9C1F4A1F215BFDEB00ECCAB6 /* PxConvexMeshDesc.h */,
+			);
+			path = cooking;
+			sourceTree = "<group>";
+		};
+		9C1F4A20215BFDEB00ECCAB6 /* gpu */ = {
+			isa = PBXGroup;
+			children = (
+				9C1F4A21215BFDEB00ECCAB6 /* PxGpu.h */,
+				9C1F4A22215BFDEB00ECCAB6 /* PxParticleGpu.h */,
+			);
+			path = gpu;
+			sourceTree = "<group>";
+		};
+		9C1F4A24215BFDEB00ECCAB6 /* vehicle */ = {
+			isa = PBXGroup;
+			children = (
+				9C1F4A25215BFDEB00ECCAB6 /* PxVehicleDriveTank.h */,
+				9C1F4A26215BFDEB00ECCAB6 /* PxVehicleNoDrive.h */,
+				9C1F4A27215BFDEB00ECCAB6 /* PxVehicleUtil.h */,
+				9C1F4A28215BFDEB00ECCAB6 /* PxVehicleSDK.h */,
+				9C1F4A29215BFDEB00ECCAB6 /* PxVehicleTireFriction.h */,
+				9C1F4A2A215BFDEB00ECCAB6 /* PxVehicleComponents.h */,
+				9C1F4A2B215BFDEB00ECCAB6 /* PxVehicleUtilSetup.h */,
+				9C1F4A2C215BFDEB00ECCAB6 /* PxVehicleDriveNW.h */,
+				9C1F4A2D215BFDEB00ECCAB6 /* PxVehicleShaders.h */,
+				9C1F4A2E215BFDEB00ECCAB6 /* PxVehicleUtilTelemetry.h */,
+				9C1F4A2F215BFDEB00ECCAB6 /* PxVehicleDrive.h */,
+				9C1F4A30215BFDEB00ECCAB6 /* PxVehicleUpdate.h */,
+				9C1F4A31215BFDEB00ECCAB6 /* PxVehicleDrive4W.h */,
+				9C1F4A32215BFDEB00ECCAB6 /* PxVehicleUtilControl.h */,
+				9C1F4A33215BFDEB00ECCAB6 /* PxVehicleWheels.h */,
+			);
+			path = vehicle;
+			sourceTree = "<group>";
+		};
+		9C1F4A35215BFDEB00ECCAB6 /* GeomUtils */ = {
+			isa = PBXGroup;
+			children = (
+				9C1F4A36215BFDEB00ECCAB6 /* GuContactBuffer.h */,
+				9C1F4A37215BFDEB00ECCAB6 /* GuContactPoint.h */,
+			);
+			path = GeomUtils;
+			sourceTree = "<group>";
+		};
+		9C1F4A38215BFDEB00ECCAB6 /* characterkinematic */ = {
+			isa = PBXGroup;
+			children = (
+				9C1F4A39215BFDEB00ECCAB6 /* PxControllerBehavior.h */,
+				9C1F4A3A215BFDEB00ECCAB6 /* PxExtended.h */,
+				9C1F4A3B215BFDEB00ECCAB6 /* PxControllerObstacles.h */,
+				9C1F4A3C215BFDEB00ECCAB6 /* PxCharacter.h */,
+				9C1F4A3D215BFDEB00ECCAB6 /* PxCapsuleController.h */,
+				9C1F4A3E215BFDEB00ECCAB6 /* PxController.h */,
+				9C1F4A3F215BFDEB00ECCAB6 /* PxControllerManager.h */,
+				9C1F4A40215BFDEB00ECCAB6 /* PxBoxController.h */,
+			);
+			path = characterkinematic;
+			sourceTree = "<group>";
+		};
+		9C1F4A46215BFDEB00ECCAB6 /* particles */ = {
+			isa = PBXGroup;
+			children = (
+				9C1F4A47215BFDEB00ECCAB6 /* PxParticleBase.h */,
+				9C1F4A48215BFDEB00ECCAB6 /* PxParticleSystem.h */,
+				9C1F4A49215BFDEB00ECCAB6 /* PxParticleFluid.h */,
+				9C1F4A4A215BFDEB00ECCAB6 /* PxParticleFlag.h */,
+				9C1F4A4B215BFDEB00ECCAB6 /* PxParticleCreationData.h */,
+				9C1F4A4C215BFDEB00ECCAB6 /* PxParticleBaseFlag.h */,
+				9C1F4A4D215BFDEB00ECCAB6 /* PxParticleFluidReadData.h */,
+				9C1F4A4E215BFDEB00ECCAB6 /* PxParticleReadData.h */,
+			);
+			path = particles;
+			sourceTree = "<group>";
+		};
+		9C1F4A4F215BFDEB00ECCAB6 /* solver */ = {
+			isa = PBXGroup;
+			children = (
+				9C1F4A50215BFDEB00ECCAB6 /* PxSolverDefs.h */,
+			);
+			path = solver;
+			sourceTree = "<group>";
+		};
+		9C1F4A53215BFDEB00ECCAB6 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9C1F4A54215BFDEB00ECCAB6 /* PxRepXSimpleType.h */,
+				9C1F4A55215BFDEB00ECCAB6 /* PxDefaultCpuDispatcher.h */,
+				9C1F4A56215BFDEB00ECCAB6 /* PxDistanceJoint.h */,
+				9C1F4A57215BFDEB00ECCAB6 /* PxConstraintExt.h */,
+				9C1F4A58215BFDEB00ECCAB6 /* PxBinaryConverter.h */,
+				9C1F4A59215BFDEB00ECCAB6 /* PxRigidBodyExt.h */,
+				9C1F4A5A215BFDEB00ECCAB6 /* PxJoint.h */,
+				9C1F4A5B215BFDEB00ECCAB6 /* PxRaycastCCD.h */,
+				9C1F4A5C215BFDEB00ECCAB6 /* PxJointLimit.h */,
+				9C1F4A5D215BFDEB00ECCAB6 /* PxSerialization.h */,
+				9C1F4A5E215BFDEB00ECCAB6 /* PxClothTetherCooker.h */,
+				9C1F4A5F215BFDEB00ECCAB6 /* PxRepXSerializer.h */,
+				9C1F4A60215BFDEB00ECCAB6 /* PxSimpleFactory.h */,
+				9C1F4A61215BFDEB00ECCAB6 /* PxDefaultSimulationFilterShader.h */,
+				9C1F4A62215BFDEB00ECCAB6 /* PxPrismaticJoint.h */,
+				9C1F4A63215BFDEB00ECCAB6 /* PxSmoothNormals.h */,
+				9C1F4A64215BFDEB00ECCAB6 /* PxClothMeshQuadifier.h */,
+				9C1F4A65215BFDEB00ECCAB6 /* PxClothMeshDesc.h */,
+				9C1F4A66215BFDEB00ECCAB6 /* PxRigidActorExt.h */,
+				9C1F4A67215BFDEB00ECCAB6 /* PxMassProperties.h */,
+				9C1F4A68215BFDEB00ECCAB6 /* PxBroadPhaseExt.h */,
+				9C1F4A69215BFDEB00ECCAB6 /* PxCollectionExt.h */,
+				9C1F4A6A215BFDEB00ECCAB6 /* PxStringTableExt.h */,
+				9C1F4A6B215BFDEB00ECCAB6 /* PxExtensionsAPI.h */,
+				9C1F4A6C215BFDEB00ECCAB6 /* PxParticleExt.h */,
+				9C1F4A6D215BFDEB00ECCAB6 /* PxDefaultAllocator.h */,
+				9C1F4A6E215BFDEB00ECCAB6 /* PxClothFabricCooker.h */,
+				9C1F4A6F215BFDEB00ECCAB6 /* PxSphericalJoint.h */,
+				9C1F4A70215BFDEB00ECCAB6 /* PxShapeExt.h */,
+				9C1F4A71215BFDEB00ECCAB6 /* PxTriangleMeshExt.h */,
+				9C1F4A72215BFDEB00ECCAB6 /* PxDefaultStreams.h */,
+				9C1F4A73215BFDEB00ECCAB6 /* PxD6Joint.h */,
+				9C1F4A74215BFDEB00ECCAB6 /* PxDefaultErrorCallback.h */,
+				9C1F4A75215BFDEB00ECCAB6 /* PxRevoluteJoint.h */,
+				9C1F4A76215BFDEB00ECCAB6 /* PxSceneQueryExt.h */,
+				9C1F4A77215BFDEB00ECCAB6 /* PxFixedJoint.h */,
+				9C1F4A78215BFDEB00ECCAB6 /* PxConvexMeshExt.h */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
+		9C1F4A7A215BFDEB00ECCAB6 /* common */ = {
+			isa = PBXGroup;
+			children = (
+				9C1F4A7B215BFDEB00ECCAB6 /* PxCoreUtilityTypes.h */,
+				9C1F4A7C215BFDEB00ECCAB6 /* PxMetaDataFlags.h */,
+				9C1F4A7D215BFDEB00ECCAB6 /* PxSerialFramework.h */,
+				9C1F4A7E215BFDEB00ECCAB6 /* PxStringTable.h */,
+				9C1F4A7F215BFDEB00ECCAB6 /* PxTypeInfo.h */,
+				9C1F4A80215BFDEB00ECCAB6 /* PxBase.h */,
+				9C1F4A81215BFDEB00ECCAB6 /* PxCollection.h */,
+				9C1F4A82215BFDEB00ECCAB6 /* PxPhysicsInsertionCallback.h */,
+				9C1F4A83215BFDEB00ECCAB6 /* PxPhysXCommonConfig.h */,
+				9C1F4A84215BFDEB00ECCAB6 /* PxSerializer.h */,
+				9C1F4A85215BFDEB00ECCAB6 /* windows */,
+				9C1F4A87215BFDEB00ECCAB6 /* PxTolerancesScale.h */,
+				9C1F4A88215BFDEB00ECCAB6 /* PxRenderBuffer.h */,
+				9C1F4A89215BFDEB00ECCAB6 /* PxMetaData.h */,
+			);
+			path = common;
+			sourceTree = "<group>";
+		};
+		9C1F4A85215BFDEB00ECCAB6 /* windows */ = {
+			isa = PBXGroup;
+			children = (
+				9C1F4A86215BFDEB00ECCAB6 /* PxWindowsDelayLoadHook.h */,
+			);
+			path = windows;
+			sourceTree = "<group>";
+		};
+		9C1F4A97215BFDEB00ECCAB6 /* cloth */ = {
+			isa = PBXGroup;
+			children = (
+				9C1F4A98215BFDEB00ECCAB6 /* PxClothFabric.h */,
+				9C1F4A99215BFDEB00ECCAB6 /* PxClothTypes.h */,
+				9C1F4A9A215BFDEB00ECCAB6 /* PxClothParticleData.h */,
+				9C1F4A9B215BFDEB00ECCAB6 /* PxClothCollisionData.h */,
+				9C1F4A9C215BFDEB00ECCAB6 /* PxCloth.h */,
+			);
+			path = cloth;
+			sourceTree = "<group>";
+		};
+		9C1F4A9D215BFDEB00ECCAB6 /* pvd */ = {
+			isa = PBXGroup;
+			children = (
+				9C1F4A9E215BFDEB00ECCAB6 /* PxPvdSceneClient.h */,
+			);
+			path = pvd;
+			sourceTree = "<group>";
+		};
+		9C1F4AA1215BFDEB00ECCAB6 /* geometry */ = {
+			isa = PBXGroup;
+			children = (
+				9C1F4AA2215BFDEB00ECCAB6 /* PxTriangleMeshGeometry.h */,
+				9C1F4AA3215BFDEB00ECCAB6 /* PxMeshScale.h */,
+				9C1F4AA4215BFDEB00ECCAB6 /* PxHeightField.h */,
+				9C1F4AA5215BFDEB00ECCAB6 /* PxGeometryHelpers.h */,
+				9C1F4AA6215BFDEB00ECCAB6 /* PxMeshQuery.h */,
+				9C1F4AA7215BFDEB00ECCAB6 /* PxPlaneGeometry.h */,
+				9C1F4AA8215BFDEB00ECCAB6 /* PxBoxGeometry.h */,
+				9C1F4AA9215BFDEB00ECCAB6 /* PxTriangle.h */,
+				9C1F4AAA215BFDEB00ECCAB6 /* PxHeightFieldSample.h */,
+				9C1F4AAB215BFDEB00ECCAB6 /* PxGeometry.h */,
+				9C1F4AAC215BFDEB00ECCAB6 /* PxCapsuleGeometry.h */,
+				9C1F4AAD215BFDEB00ECCAB6 /* PxHeightFieldFlag.h */,
+				9C1F4AAE215BFDEB00ECCAB6 /* PxHeightFieldGeometry.h */,
+				9C1F4AAF215BFDEB00ECCAB6 /* PxTriangleMesh.h */,
+				9C1F4AB0215BFDEB00ECCAB6 /* PxGeometryQuery.h */,
+				9C1F4AB1215BFDEB00ECCAB6 /* PxConvexMesh.h */,
+				9C1F4AB2215BFDEB00ECCAB6 /* PxSimpleTriangleMesh.h */,
+				9C1F4AB3215BFDEB00ECCAB6 /* PxConvexMeshGeometry.h */,
+				9C1F4AB4215BFDEB00ECCAB6 /* PxHeightFieldDesc.h */,
+				9C1F4AB5215BFDEB00ECCAB6 /* PxSphereGeometry.h */,
+			);
+			path = geometry;
+			sourceTree = "<group>";
+		};
+		9C1F4ABE215BFDEB00ECCAB6 /* collision */ = {
+			isa = PBXGroup;
+			children = (
+				9C1F4ABF215BFDEB00ECCAB6 /* PxCollisionDefs.h */,
+			);
+			path = collision;
+			sourceTree = "<group>";
+		};
+		9C1F4AC1215BFDEB00ECCAB6 /* PxShared */ = {
+			isa = PBXGroup;
+			children = (
+				9C1F4AC2215BFDEB00ECCAB6 /* osx64 */,
+				9C1F4AC7215BFDEB00ECCAB6 /* include */,
+			);
+			path = PxShared;
+			sourceTree = "<group>";
+		};
+		9C1F4AC2215BFDEB00ECCAB6 /* osx64 */ = {
+			isa = PBXGroup;
+			children = (
+				9C1F4AC3215BFDEB00ECCAB6 /* libPxPvdSDK.a */,
+				9C1F4AC4215BFDEB00ECCAB6 /* libPsFastXml.a */,
+				9C1F4AC5215BFDEB00ECCAB6 /* libPxFoundation.a */,
+				9C1F4AC6215BFDEB00ECCAB6 /* libPxTask.a */,
+			);
+			path = osx64;
+			sourceTree = "<group>";
+		};
+		9C1F4AC7215BFDEB00ECCAB6 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				9C1F4AC8215BFDEB00ECCAB6 /* foundation */,
+				9C1F4AEA215BFDEB00ECCAB6 /* cudamanager */,
+				9C1F4AEF215BFDEB00ECCAB6 /* filebuf */,
+				9C1F4AF1215BFDEB00ECCAB6 /* task */,
+				9C1F4AF8215BFDEB00ECCAB6 /* pvd */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		9C1F4AC8215BFDEB00ECCAB6 /* foundation */ = {
+			isa = PBXGroup;
+			children = (
+				9C1F4AC9215BFDEB00ECCAB6 /* PxFoundation.h */,
+				9C1F4ACA215BFDEB00ECCAB6 /* PxVec4.h */,
+				9C1F4ACB215BFDEB00ECCAB6 /* PxQuat.h */,
+				9C1F4ACC215BFDEB00ECCAB6 /* PxAllocatorCallback.h */,
+				9C1F4ACD215BFDEB00ECCAB6 /* PxStrideIterator.h */,
+				9C1F4ACE215BFDEB00ECCAB6 /* PxPlane.h */,
+				9C1F4ACF215BFDEB00ECCAB6 /* PxErrors.h */,
+				9C1F4AD0215BFDEB00ECCAB6 /* PxTransform.h */,
+				9C1F4AD1215BFDEB00ECCAB6 /* PxFlags.h */,
+				9C1F4AD2215BFDEB00ECCAB6 /* PxMath.h */,
+				9C1F4AD3215BFDEB00ECCAB6 /* PxIntrinsics.h */,
+				9C1F4AD4215BFDEB00ECCAB6 /* PxMathUtils.h */,
+				9C1F4AD5215BFDEB00ECCAB6 /* PxProfiler.h */,
+				9C1F4AD6215BFDEB00ECCAB6 /* PxMat44.h */,
+				9C1F4AD7215BFDEB00ECCAB6 /* PxSimpleTypes.h */,
+				9C1F4AD8215BFDEB00ECCAB6 /* PxVec3.h */,
+				9C1F4AD9215BFDEB00ECCAB6 /* PxBitAndData.h */,
+				9C1F4ADA215BFDEB00ECCAB6 /* Px.h */,
+				9C1F4ADB215BFDEB00ECCAB6 /* PxErrorCallback.h */,
+				9C1F4ADC215BFDEB00ECCAB6 /* unix */,
+				9C1F4ADE215BFDEB00ECCAB6 /* PxVec2.h */,
+				9C1F4ADF215BFDEB00ECCAB6 /* PxAssert.h */,
+				9C1F4AE0215BFDEB00ECCAB6 /* PxFoundationVersion.h */,
+				9C1F4AE1215BFDEB00ECCAB6 /* PxIO.h */,
+				9C1F4AE2215BFDEB00ECCAB6 /* PxBounds3.h */,
+				9C1F4AE3215BFDEB00ECCAB6 /* PxMemory.h */,
+				9C1F4AE4215BFDEB00ECCAB6 /* windows */,
+				9C1F4AE7215BFDEB00ECCAB6 /* PxUnionCast.h */,
+				9C1F4AE8215BFDEB00ECCAB6 /* PxPreprocessor.h */,
+				9C1F4AE9215BFDEB00ECCAB6 /* PxMat33.h */,
+			);
+			path = foundation;
+			sourceTree = "<group>";
+		};
+		9C1F4ADC215BFDEB00ECCAB6 /* unix */ = {
+			isa = PBXGroup;
+			children = (
+				9C1F4ADD215BFDEB00ECCAB6 /* PxUnixIntrinsics.h */,
+			);
+			path = unix;
+			sourceTree = "<group>";
+		};
+		9C1F4AE4215BFDEB00ECCAB6 /* windows */ = {
+			isa = PBXGroup;
+			children = (
+				9C1F4AE5215BFDEB00ECCAB6 /* PxWindowsIntrinsics.h */,
+				9C1F4AE6215BFDEB00ECCAB6 /* PxWindowsFoundationDelayLoadHook.h */,
+			);
+			path = windows;
+			sourceTree = "<group>";
+		};
+		9C1F4AEA215BFDEB00ECCAB6 /* cudamanager */ = {
+			isa = PBXGroup;
+			children = (
+				9C1F4AEB215BFDEB00ECCAB6 /* PxCudaContextManager.h */,
+				9C1F4AEC215BFDEB00ECCAB6 /* PxGpuCopyDescQueue.h */,
+				9C1F4AED215BFDEB00ECCAB6 /* PxCudaMemoryManager.h */,
+				9C1F4AEE215BFDEB00ECCAB6 /* PxGpuCopyDesc.h */,
+			);
+			path = cudamanager;
+			sourceTree = "<group>";
+		};
+		9C1F4AEF215BFDEB00ECCAB6 /* filebuf */ = {
+			isa = PBXGroup;
+			children = (
+				9C1F4AF0215BFDEB00ECCAB6 /* PxFileBuf.h */,
+			);
+			path = filebuf;
+			sourceTree = "<group>";
+		};
+		9C1F4AF1215BFDEB00ECCAB6 /* task */ = {
+			isa = PBXGroup;
+			children = (
+				9C1F4AF2215BFDEB00ECCAB6 /* PxTaskDefine.h */,
+				9C1F4AF3215BFDEB00ECCAB6 /* PxTask.h */,
+				9C1F4AF4215BFDEB00ECCAB6 /* PxGpuDispatcher.h */,
+				9C1F4AF5215BFDEB00ECCAB6 /* PxCpuDispatcher.h */,
+				9C1F4AF6215BFDEB00ECCAB6 /* PxTaskManager.h */,
+				9C1F4AF7215BFDEB00ECCAB6 /* PxGpuTask.h */,
+			);
+			path = task;
+			sourceTree = "<group>";
+		};
+		9C1F4AF8215BFDEB00ECCAB6 /* pvd */ = {
+			isa = PBXGroup;
+			children = (
+				9C1F4AF9215BFDEB00ECCAB6 /* PxPvdTransport.h */,
+				9C1F4AFA215BFDEB00ECCAB6 /* PxPvd.h */,
+				9C1F4AFB215BFDEB00ECCAB6 /* windows */,
+			);
+			path = pvd;
+			sourceTree = "<group>";
+		};
+		9C1F4AFB215BFDEB00ECCAB6 /* windows */ = {
+			isa = PBXGroup;
+			children = (
+				9C1F4AFC215BFDEB00ECCAB6 /* PxWindowsPvdDelayLoadHook.h */,
+			);
+			path = windows;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9C1F47B7215BF2DB00ECCAB6 /* MRSS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9C1F47BC215BF2DB00ECCAB6 /* Build configuration list for PBXNativeTarget "MRSS" */;
+			buildPhases = (
+				9C1F47B4215BF2DB00ECCAB6 /* Sources */,
+				9C1F47B5215BF2DB00ECCAB6 /* Frameworks */,
+				9C1F47B6215BF2DB00ECCAB6 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MRSS;
+			productName = MRSS;
+			productReference = 9C1F47B8215BF2DB00ECCAB6 /* MRSS */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		9C1F4598215BECBF00ECCAB6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1000;
+				TargetAttributes = {
+					9C1F47B7215BF2DB00ECCAB6 = {
+						CreatedOnToolsVersion = 10.0;
+					};
+				};
 			};
 			buildConfigurationList = 9C1F459B215BECBF00ECCAB6 /* Build configuration list for PBXProject "MRSS" */;
 			compatibilityVersion = "Xcode 9.3";
@@ -29,12 +825,25 @@
 				en,
 			);
 			mainGroup = 9C1F4597215BECBF00ECCAB6;
+			productRefGroup = 9C1F45A7215BED6500ECCAB6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				9C1F47B7215BF2DB00ECCAB6 /* MRSS */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9C1F47B4215BF2DB00ECCAB6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C1F4A01215BFA3800ECCAB6 /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
 		9C1F459C215BECBF00ECCAB6 /* Debug */ = {
@@ -49,6 +858,150 @@
 			};
 			name = Release;
 		};
+		9C1F47BD215BF2DB00ECCAB6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = B3K44PAP9C;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					_DEBUG,
+					PX_DEBUG,
+					PX_CHECKED,
+					PX_SUPPORT_VISUAL_DEBUGGER,
+					PHYSX_PROFILE_SDK,
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PhysX_3.4/include",
+					"$(PROJECT_DIR)/PhysX_3.4/PxShared/include",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PhysX_3.4/osx64",
+					"$(PROJECT_DIR)/PhysX_3.4/PxShared/osx64",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		9C1F47BE215BF2DB00ECCAB6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = B3K44PAP9C;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					NDEBUG,
+					PHYSX_PROFILE_SDK,
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PhysX_3.4/include",
+					"$(PROJECT_DIR)/PhysX_3.4/PxShared/include",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PhysX_3.4/osx64",
+					"$(PROJECT_DIR)/PhysX_3.4/PxShared/osx64",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -57,6 +1010,15 @@
 			buildConfigurations = (
 				9C1F459C215BECBF00ECCAB6 /* Debug */,
 				9C1F459D215BECBF00ECCAB6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9C1F47BC215BF2DB00ECCAB6 /* Build configuration list for PBXNativeTarget "MRSS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C1F47BD215BF2DB00ECCAB6 /* Debug */,
+				9C1F47BE215BF2DB00ECCAB6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
