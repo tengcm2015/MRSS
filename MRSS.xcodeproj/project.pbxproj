@@ -27,6 +27,12 @@
 		9C1F4B0B215BFDEB00ECCAB6 /* libPsFastXml.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C1F4AC4215BFDEB00ECCAB6 /* libPsFastXml.a */; };
 		9C1F4B0C215BFDEB00ECCAB6 /* libPxFoundation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C1F4AC5215BFDEB00ECCAB6 /* libPxFoundation.a */; };
 		9C1F4B0D215BFDEB00ECCAB6 /* libPxTask.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C1F4AC6215BFDEB00ECCAB6 /* libPxTask.a */; };
+		9C1F4B10215C018F00ECCAB6 /* PhysX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F4B0E215C018F00ECCAB6 /* PhysX.cpp */; };
+		9C1F4B16215C0AA300ECCAB6 /* GlobalState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F4B14215C0AA300ECCAB6 /* GlobalState.cpp */; };
+		9C1F4B1A215C0B7E00ECCAB6 /* Mannequin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F4B18215C0B7E00ECCAB6 /* Mannequin.cpp */; };
+		9C1F4B1D215C0DEB00ECCAB6 /* Chain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F4B1B215C0DEB00ECCAB6 /* Chain.cpp */; };
+		9C1F4B20215C0E3000ECCAB6 /* Swing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F4B1E215C0E3000ECCAB6 /* Swing.cpp */; };
+		9C1F4B23215C0FD100ECCAB6 /* GL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C1F4B21215C0FD100ECCAB6 /* GL.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -42,7 +48,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		9C1F45A0215BED1D00ECCAB6 /* main.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = main.h; sourceTree = "<group>"; };
+		9C1F45A0215BED1D00ECCAB6 /* main.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = main.hpp; sourceTree = "<group>"; };
 		9C1F45A1215BED1D00ECCAB6 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		9C1F45B0215BEDDE00ECCAB6 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 		9C1F45B2215BEDEB00ECCAB6 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -270,6 +276,18 @@
 		9C1F4AF9215BFDEB00ECCAB6 /* PxPvdTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxPvdTransport.h; sourceTree = "<group>"; };
 		9C1F4AFA215BFDEB00ECCAB6 /* PxPvd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxPvd.h; sourceTree = "<group>"; };
 		9C1F4AFC215BFDEB00ECCAB6 /* PxWindowsPvdDelayLoadHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxWindowsPvdDelayLoadHook.h; sourceTree = "<group>"; };
+		9C1F4B0E215C018F00ECCAB6 /* PhysX.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PhysX.cpp; sourceTree = "<group>"; };
+		9C1F4B0F215C018F00ECCAB6 /* PhysX.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PhysX.hpp; sourceTree = "<group>"; };
+		9C1F4B14215C0AA300ECCAB6 /* GlobalState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GlobalState.cpp; sourceTree = "<group>"; };
+		9C1F4B15215C0AA300ECCAB6 /* GlobalState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GlobalState.hpp; sourceTree = "<group>"; };
+		9C1F4B18215C0B7E00ECCAB6 /* Mannequin.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Mannequin.cpp; sourceTree = "<group>"; };
+		9C1F4B19215C0B7E00ECCAB6 /* Mannequin.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Mannequin.hpp; sourceTree = "<group>"; };
+		9C1F4B1B215C0DEB00ECCAB6 /* Chain.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Chain.cpp; sourceTree = "<group>"; };
+		9C1F4B1C215C0DEB00ECCAB6 /* Chain.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Chain.hpp; sourceTree = "<group>"; };
+		9C1F4B1E215C0E3000ECCAB6 /* Swing.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Swing.cpp; sourceTree = "<group>"; };
+		9C1F4B1F215C0E3000ECCAB6 /* Swing.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Swing.hpp; sourceTree = "<group>"; };
+		9C1F4B21215C0FD100ECCAB6 /* GL.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GL.cpp; sourceTree = "<group>"; };
+		9C1F4B22215C0FD100ECCAB6 /* GL.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GL.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -314,8 +332,15 @@
 		9C1F459F215BED1D00ECCAB6 /* source */ = {
 			isa = PBXGroup;
 			children = (
-				9C1F45A0215BED1D00ECCAB6 /* main.h */,
+				9C1F4B17215C0B6700ECCAB6 /* objects */,
+				9C1F45A0215BED1D00ECCAB6 /* main.hpp */,
 				9C1F45A1215BED1D00ECCAB6 /* main.cpp */,
+				9C1F4B15215C0AA300ECCAB6 /* GlobalState.hpp */,
+				9C1F4B14215C0AA300ECCAB6 /* GlobalState.cpp */,
+				9C1F4B0F215C018F00ECCAB6 /* PhysX.hpp */,
+				9C1F4B0E215C018F00ECCAB6 /* PhysX.cpp */,
+				9C1F4B22215C0FD100ECCAB6 /* GL.hpp */,
+				9C1F4B21215C0FD100ECCAB6 /* GL.cpp */,
 			);
 			path = source;
 			sourceTree = "<group>";
@@ -784,6 +809,19 @@
 			path = windows;
 			sourceTree = "<group>";
 		};
+		9C1F4B17215C0B6700ECCAB6 /* objects */ = {
+			isa = PBXGroup;
+			children = (
+				9C1F4B1C215C0DEB00ECCAB6 /* Chain.hpp */,
+				9C1F4B1B215C0DEB00ECCAB6 /* Chain.cpp */,
+				9C1F4B1F215C0E3000ECCAB6 /* Swing.hpp */,
+				9C1F4B1E215C0E3000ECCAB6 /* Swing.cpp */,
+				9C1F4B19215C0B7E00ECCAB6 /* Mannequin.hpp */,
+				9C1F4B18215C0B7E00ECCAB6 /* Mannequin.cpp */,
+			);
+			path = objects;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -839,7 +877,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C1F4B1D215C0DEB00ECCAB6 /* Chain.cpp in Sources */,
+				9C1F4B10215C018F00ECCAB6 /* PhysX.cpp in Sources */,
+				9C1F4B20215C0E3000ECCAB6 /* Swing.cpp in Sources */,
 				9C1F4A01215BFA3800ECCAB6 /* main.cpp in Sources */,
+				9C1F4B23215C0FD100ECCAB6 /* GL.cpp in Sources */,
+				9C1F4B1A215C0B7E00ECCAB6 /* Mannequin.cpp in Sources */,
+				9C1F4B16215C0AA300ECCAB6 /* GlobalState.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

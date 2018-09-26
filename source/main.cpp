@@ -6,63 +6,27 @@
 //
 //
 
-#include <iostream>
-#include <GLUT/GLUT.h>
-#include <PxPhysicsAPI.h>
-#include "main.h"
+#include "main.hpp"
 
-#define WINDOW_WIDTH 1024
-#define WINDOW_HEIGHT 768
+#include <iostream>
+#include <vector>
+
+#include "GlobalState.hpp"
+#include "PhysX.hpp"
+#include "GL.hpp"
+#include "objects/Chain.hpp"
+#include "objects/Swing.hpp"
+#include "objects/Mannequin.hpp"
 
 using namespace std;
-using namespace physx;
 
-// for mouse dragging
-bool mouseisdown = false;
-int oldx, oldy;
-int roty = 30;
-int rotx = 20;
 
-// for moving perspective
-float dist = -20;
-float horizontal = 0;
+PxPhysics *gPhysicsSDK = nullptr;
+PxScene *gScene = nullptr;
 
-// for initianlizing lock
-bool locked = 0;
-float countdown = 1000;
-float elapsed = 0;
-float start = 0;
-
-// for calculating fps
-float fps = 0;
-int startTime = 0;
-int totalFrames = 0;
-
-// for auto swing
-float max_angle = 0;
-float min_angle = 0;
-
-// modes
-bool help = 0;
-bool paused = 1;
-bool manual = 1;
-
-static PxFoundation				*gFoundation = NULL;
-static PxPhysics				*gPhysicsSDK = NULL;
-static PxDefaultCpuDispatcher	*mCpuDispatcher = NULL;
-static PxDefaultErrorCallback	gDefaultErrorCallback;
-static PxDefaultAllocator		gDefaultAllocatorCallback;
-static PxSimulationFilterShader gDefaultFilterShader=PxDefaultSimulationFilterShader;
-PxScene* gScene = NULL;
-PxReal myTimestep = 1.0f/40.0f;
-
-typedef struct MannequinRot {
-	int mode;
-	PxReal armrot_u;
-	PxReal armrot_l;
-	PxReal legrot_u;
-	PxReal legrot_l;
-} MannequinRot;
+vector<PxRigidActor*> Actors;
+vector<Swing*> swing;
+vector<Mannequin*> M0;
 
 MannequinRot mode1 = {
 	1,
@@ -79,466 +43,13 @@ MannequinRot mode2 = {
 	PxPi * -1 / 6
 };
 
-class Mannequin {
-public:
-	//for toggle drive
-	bool active = 0;
-	
-	vector<PxD6Joint*> MannequinJoints;
-	
-	double
-	head_radius,
-	body_width, body_height, body_length,
-	arm_width, arm_height, arm_length,
-	leg_width, leg_height, leg_length;
-	
-	PxRigidDynamic
-	*head_act, *body_act,
-	*upper_arm1, *upper_arm2, *lower_arm1, *lower_arm2,
-	*upper_leg1, *upper_leg2, *lower_leg1, *lower_leg2;
-	
-	PxD6Joint
-	*j_neck,
-	*j_sho_1, *j_sho_2, *j_arm_1, *j_arm_2,
-	*j_leg_1, *j_leg_2, *j_kne_1, *j_kne_2;
-	
-	MannequinRot mode = mode1;
-	
-	Mannequin(double height, double shoulder_width, PxVec3 foot_position,
-			  PxReal density, PxMaterial *mMaterial);
-	
-	PxD6JointDrive *drive;
-	
-	//	force = spring * (targetPosition - position) + damping * (targetVelocity - velocity)
-	void DriveOn() {
-		active = 1;
-		drive->damping = 250.0f;
-		drive->stiffness = 4000.0f;
-		j_sho_1->setDrive(PxD6Drive::eSWING, *drive);
-		j_sho_2->setDrive(PxD6Drive::eSWING, *drive);
-		j_arm_1->setDrive(PxD6Drive::eSWING, *drive);
-		j_arm_2->setDrive(PxD6Drive::eSWING, *drive);
-		
-		drive->stiffness = 3000.0f;
-		j_leg_1->setDrive(PxD6Drive::eSWING, *drive);
-		j_leg_2->setDrive(PxD6Drive::eSWING, *drive);
-		j_kne_1->setDrive(PxD6Drive::eSWING, *drive);
-		j_kne_2->setDrive(PxD6Drive::eSWING, *drive);
-		
-		//local pose
-		j_sho_1->setDrivePosition(PxTransform(PxQuat(mode.armrot_u, PxVec3(0, 1, 0))));
-		j_sho_2->setDrivePosition(PxTransform(PxQuat(mode.armrot_u, PxVec3(0, 1, 0))));
-		j_arm_1->setDrivePosition(PxTransform(PxQuat(mode.armrot_l, PxVec3(0, 1, 0))));
-		j_arm_2->setDrivePosition(PxTransform(PxQuat(mode.armrot_l, PxVec3(0, 1, 0))));
-		j_leg_1->setDrivePosition(PxTransform(PxQuat(mode.legrot_u, PxVec3(0, 1, 0))));
-		j_leg_2->setDrivePosition(PxTransform(PxQuat(mode.legrot_u, PxVec3(0, 1, 0))));
-		j_kne_1->setDrivePosition(PxTransform(PxQuat(mode.legrot_l, PxVec3(0, 1, 0))));
-		j_kne_2->setDrivePosition(PxTransform(PxQuat(mode.legrot_l, PxVec3(0, 1, 0))));
-		
-	}
-	void DriveOff() {
-		active = 0;
-		drive->damping = 0.0f;
-		drive->stiffness = 0.0f;
-		for (int i = 1; i < MannequinJoints.size(); i++) {
-			MannequinJoints[i]->setDrive(PxD6Drive::eSWING, *drive);
-			MannequinJoints[i]->setDriveVelocity(PxVec3(PxZero), PxVec3(PxZero));
-		}
-		
-	}
-	
-	void setMode(MannequinRot m) {
-		mode = m;
-		DriveOn();
-	}
-	
-	void Unlock() {
-		locked = 0;
-		body_act->setRigidBodyFlag(PxRigidBodyFlag::eKINEMATIC, false);
-	}
-	void Clear() {
-		gScene->removeActor(*head_act);
-		gScene->removeActor(*body_act);
-		gScene->removeActor(*upper_arm1);
-		gScene->removeActor(*upper_arm2);
-		gScene->removeActor(*lower_arm1);
-		gScene->removeActor(*lower_arm2);
-		gScene->removeActor(*upper_leg1);
-		gScene->removeActor(*upper_leg2);
-		gScene->removeActor(*lower_leg1);
-		gScene->removeActor(*lower_leg2);
-		delete drive;
-	}
-	void glutDraw() {
-		DrawActor(head_act);
-		DrawActor(body_act);
-		DrawActor(upper_arm1);
-		DrawActor(upper_arm2);
-		DrawActor(lower_arm1);
-		DrawActor(lower_arm2);
-		DrawActor(upper_leg1);
-		DrawActor(upper_leg2);
-		DrawActor(lower_leg1);
-		DrawActor(lower_leg2);
-	}
-};
-
-// Mannequin constructor
-Mannequin::Mannequin(double height, double shoulder_width, PxVec3 foot_position,
-					 PxReal density, PxMaterial *mMaterial) {
-	//height: capsule w/o sphere part
-	//length: capsule w/ sphere part
-	arm_width	= shoulder_width / 5;
-	arm_height	= arm_width * 2.5;
-	arm_length	= arm_height + arm_width;
-	
-	leg_width	= arm_width * 1.125;
-	
-	body_width	= 3 * arm_width;
-	leg_height	= (height - (body_width * 2 + leg_width * 2)) / 3;
-	leg_length	= leg_width + leg_height;
-	
-	body_height	= leg_height;
-	body_length	= body_height + body_width;
-	
-	head_radius	= body_width / 2;
-	
-	//create drive
-	drive = new PxD6JointDrive(0.0f, 0.0f, PX_MAX_F32, true);
-	
-	//global pose
-	PxVec3 body_pos = foot_position + PxVec3(0, (leg_length * 2) + (body_length / 2), 0);
-	
-	PxVec3 body_to_shoulder1 ((body_width + arm_width) / 2, body_height / 2, 0);
-	PxVec3 body_to_shoulder2 (-(body_width + arm_width) / 2, body_height / 2, 0);
-	PxVec3 upper_to_lower_arm (0, -arm_length, 0);
-	PxVec3 shoulder_to_upper_arm = upper_to_lower_arm / 2;
-	
-	PxVec3 body_to_leg_root1 ((body_width - leg_width - 0.1) / 2, -body_length / 2, 0);
-	PxVec3 body_to_leg_root2 (-(body_width - leg_width - 0.1) / 2, -body_length / 2, 0);
-	
-	PxVec3 upper_to_lower_leg (0, -leg_length, 0);
-	PxVec3 root_to_upper_leg = upper_to_lower_leg / 2;
-	
-	head_act = CreateSphere(body_pos + PxVec3(0, body_length / 2 + head_radius, 0), head_radius, density, mMaterial);
-	
-	body_act = CreateCapsule(body_pos, PxVec3(0, 0, 1), PxHalfPi, body_width / 2, body_height / 2,
-							 density, mMaterial);
-	
-	upper_arm1 = CreateCapsule(body_pos + body_to_shoulder1 + shoulder_to_upper_arm,
-							   PxVec3(0, 0, 1), PxHalfPi, arm_width / 2, arm_height / 2,
-							   density, mMaterial);
-	
-	upper_arm2 = CreateCapsule(body_pos + body_to_shoulder2 + shoulder_to_upper_arm,
-							   PxVec3(0, 0, 1), PxHalfPi, arm_width / 2, arm_height / 2,
-							   density, mMaterial);
-	lower_arm1 = CreateCapsule(body_pos + body_to_shoulder1 + shoulder_to_upper_arm + upper_to_lower_arm,
-							   PxVec3(0, 0, 1), PxHalfPi, arm_width / 2, arm_height / 2,
-							   density, mMaterial);
-	
-	lower_arm2 = CreateCapsule(body_pos + body_to_shoulder2 + shoulder_to_upper_arm + upper_to_lower_arm,
-							   PxVec3(0, 0, 1), PxHalfPi, arm_width / 2, arm_height / 2,
-							   density, mMaterial);
-	
-	upper_leg1 = CreateCapsule(body_pos + body_to_leg_root1 + root_to_upper_leg,
-							   PxVec3(0, 0, 1), PxHalfPi, leg_width / 2, leg_height / 2,
-							   density, mMaterial);
-	
-	upper_leg2 = CreateCapsule(body_pos + body_to_leg_root2 + root_to_upper_leg,
-							   PxVec3(0, 0, 1), PxHalfPi, leg_width / 2, leg_height / 2,
-							   density, mMaterial);
-	
-	lower_leg1 = CreateCapsule(body_pos + body_to_leg_root1 + root_to_upper_leg + upper_to_lower_leg,
-							   PxVec3(0, 0, 1), PxHalfPi, leg_width / 2, leg_height / 2,
-							   density, mMaterial);
-	
-	lower_leg2 = CreateCapsule(body_pos + body_to_leg_root2 + root_to_upper_leg + upper_to_lower_leg,
-							   PxVec3(0, 0, 1), PxHalfPi, leg_width / 2, leg_height / 2,
-							   density, mMaterial);
-	
-	//local pose here
-	//caution: NOT y!
-	PxTransform body_upend		(PxVec3(body_length / 2, 0, 0));
-	//this one is different
-	PxTransform head_downend	(PxVec3(0, -head_radius, 0), QuatRotate(PxVec3(0, 0, 1), PxHalfPi));
-	
-	PxTransform body_to_sho1	(PxVec3(body_to_shoulder1.y, -body_to_shoulder1.x, body_to_shoulder1.z));
-	PxTransform body_to_sho2	(PxVec3(body_to_shoulder2.y, -body_to_shoulder2.x, body_to_shoulder2.z));
-	PxTransform body_to_root1	(PxVec3(body_to_leg_root1.y, -body_to_leg_root1.x, body_to_leg_root1.z));
-	PxTransform body_to_root2	(PxVec3(body_to_leg_root2.y, -body_to_leg_root2.x, body_to_leg_root2.z));
-	
-	PxVec3 arm_end(arm_length / 2, 0, 0);
-	PxVec3 leg_end(leg_length / 2, 0, 0);
-	
-	PxQuat arm_upend1	= QuatRotate(PxVec3(0, 1, 0), -PxHalfPi / 2);
-	PxQuat arm_upend2	= QuatRotate(PxVec3(0, 1, 0), -PxHalfPi / 2);
-	PxQuat arm_downend	= QuatRotate(PxVec3(0, 1, 0), PxHalfPi);
-	PxQuat leg_upend1	= QuatRotate(PxVec3(0, 1, 0), -PxHalfPi);
-	PxQuat leg_upend2	= QuatRotate(PxVec3(0, 1, 0), -PxHalfPi);
-	PxQuat leg_downend	= QuatRotate(PxVec3(0, 1, 0), -PxHalfPi);
-	
-	// hold the body in place while attaching joint to the swing
-	locked = 1;
-	body_act->setRigidBodyFlag(PxRigidBodyFlag::eKINEMATIC, true);
-	
-	j_neck = PxD6JointCreate(*gPhysicsSDK, head_act, head_downend, body_act, body_upend);
-	MannequinJoints.push_back(j_neck);
-	
-	j_sho_1 = PxD6JointCreate(*gPhysicsSDK, body_act, body_to_sho1,
-							  upper_arm1, PxTransform(arm_end, arm_upend1));
-	j_sho_1->setConstraintFlag(PxConstraintFlag::eCOLLISION_ENABLED, true);
-	j_sho_1->setMotion(PxD6Axis::eSWING1, PxD6Motion::eLIMITED); //rotate around y axis
-	j_sho_1->setMotion(PxD6Axis::eSWING2, PxD6Motion::eLIMITED); //rotate around z axis
-	j_sho_1->setSwingLimit(PxJointLimitCone(PxHalfPi * 4 / 3, PxHalfPi));
-	MannequinJoints.push_back(j_sho_1);
-	
-	j_sho_2 = PxD6JointCreate(*gPhysicsSDK, body_act, body_to_sho2,
-							  upper_arm2, PxTransform(arm_end, arm_upend2));
-	j_sho_2->setConstraintFlag(PxConstraintFlag::eCOLLISION_ENABLED, true);
-	j_sho_2->setMotion(PxD6Axis::eSWING1, PxD6Motion::eLIMITED);
-	j_sho_2->setMotion(PxD6Axis::eSWING2, PxD6Motion::eLIMITED);
-	j_sho_2->setSwingLimit(PxJointLimitCone(PxHalfPi * 4 / 3, PxHalfPi));
-	MannequinJoints.push_back(j_sho_2);
-	
-	j_arm_1 = PxD6JointCreate(*gPhysicsSDK, upper_arm1, PxTransform(-arm_end, arm_downend),
-							  lower_arm1, PxTransform(arm_end));
-	j_arm_1->setMotion(PxD6Axis::eSWING1, PxD6Motion::eLIMITED);
-	j_arm_1->setSwingLimit(PxJointLimitCone(PxHalfPi, 0));
-	MannequinJoints.push_back(j_arm_1);
-	
-	j_arm_2 = PxD6JointCreate(*gPhysicsSDK, upper_arm2, PxTransform(-arm_end, arm_downend),
-							  lower_arm2, PxTransform(arm_end));
-	j_arm_2->setMotion(PxD6Axis::eSWING1, PxD6Motion::eLIMITED);
-	j_arm_2->setSwingLimit(PxJointLimitCone(PxHalfPi, 0));
-	MannequinJoints.push_back(j_arm_2);
-	
-	j_leg_1 = PxD6JointCreate(*gPhysicsSDK, body_act, body_to_root1,
-							  upper_leg1, PxTransform(leg_end, leg_upend1));
-	j_leg_1->setConstraintFlag(PxConstraintFlag::eCOLLISION_ENABLED, true);
-	j_leg_1->setMotion(PxD6Axis::eSWING1, PxD6Motion::eLIMITED);
-	j_leg_1->setSwingLimit(PxJointLimitCone(PxHalfPi, PxHalfPi));
-	MannequinJoints.push_back(j_leg_1);
-	
-	j_leg_2 = PxD6JointCreate(*gPhysicsSDK, body_act, body_to_root2,
-							  upper_leg2, PxTransform(leg_end, leg_upend2));
-	j_leg_2->setConstraintFlag(PxConstraintFlag::eCOLLISION_ENABLED, true);
-	j_leg_2->setMotion(PxD6Axis::eSWING1, PxD6Motion::eLIMITED);
-	j_leg_2->setSwingLimit(PxJointLimitCone(PxHalfPi, PxHalfPi));
-	MannequinJoints.push_back(j_leg_2);
-	
-	j_kne_1 = PxD6JointCreate(*gPhysicsSDK, upper_leg1, PxTransform(-leg_end, leg_downend),
-							  lower_leg1, PxTransform(leg_end));
-	j_kne_1->setMotion(PxD6Axis::eSWING1, PxD6Motion::eLIMITED);
-	j_kne_1->setSwingLimit(PxJointLimitCone(PxHalfPi, 0));
-	MannequinJoints.push_back(j_kne_1);
-	
-	j_kne_2 = PxD6JointCreate(*gPhysicsSDK, upper_leg2, PxTransform(-leg_end, leg_downend),
-							  lower_leg2, PxTransform(leg_end));
-	j_kne_2->setMotion(PxD6Axis::eSWING1, PxD6Motion::eLIMITED);
-	j_kne_2->setSwingLimit(PxJointLimitCone(PxHalfPi, 0));
-	MannequinJoints.push_back(j_kne_2);
-	
-}
-
-class Chain {
-public:
-	PxArticulation *articulation;
-	vector<PxArticulationLink*> ArticLinks;
-	
-	double seg_joint_dist;
-	
-	Chain(PxVec3 pos, int seg_num, PxReal seg_radius, PxReal seg_half_length,
-		  PxReal density, PxMaterial *mMaterial);
-	
-	void Clear() {
-// Individual articulation links can not be removed from the scene
-// remove articulrtion directly
-		gScene->removeArticulation(*articulation);
-	}
-	
-	void glutDraw() {
-		for(int i=0;i<ArticLinks.size();i++ ) {
-			DrawActor(ArticLinks[i]);
-		}
-	}
-	
-};
-
-//Chain constructor
-Chain::Chain(PxVec3 pos, int seg_num, PxReal seg_radius, PxReal seg_half_length,
-			 PxReal density, PxMaterial *mMaterial) {
-	// top segment = seg 0  // seg_num > 0
-	
-	seg_joint_dist = 1.10 * seg_radius + seg_half_length;
-	PxCapsuleGeometry geometry(seg_radius, seg_half_length);
-	
-	PxTransform position(pos, PxQuat(PxHalfPi, PxVec3(0, 0, 1)));
-	PxTransform downend(PxVec3(-seg_joint_dist, 0, 0));
-	PxTransform upend(PxVec3(seg_joint_dist, 0, 0));
-	
-	articulation = gPhysicsSDK->createArticulation();
-	PxArticulationLink *u_link = articulation->createLink(NULL, position);
-	u_link->createShape(geometry, *mMaterial);
-	PxRigidBodyExt::updateMassAndInertia(*u_link, density);
-	ArticLinks.push_back(u_link);
-	
-	//	global position this time
-	for (int i = 1; i < seg_num; i++) {
-		position.p -= PxVec3(0, 2 * seg_joint_dist, 0);
-		PxArticulationLink *d_link = articulation->createLink(u_link, position);
-		d_link->createShape(geometry, *mMaterial);
-		PxRigidBodyExt::updateMassAndInertia(*d_link, density);
-		ArticLinks.push_back(d_link);
-		
-		PxArticulationJoint *j = d_link->getInboundJoint();
-		j->setParentPose(downend);
-		j->setChildPose(upend);
-		j->setTwistLimit(0, 0);
-		j->setTwistLimitEnabled(true);
-		
-		u_link = d_link;
-	}
-	
-	gScene->addArticulation(*articulation);
-	
-}
-
-class Swing {
-	PxShape *shaft_stick, *seat_board;
-	
-public:
-	PxRigidStatic *shaft;
-	PxRigidDynamic *seat;
-	Chain *chain1, *chain2;
-	
-	double str_head_height, seat_height, seg_joint_dist;
-	
-	Swing(PxVec3 pos, PxReal half_width, PxReal seg_num, PxReal seg_radius, PxReal seg_half_length,
-		  PxReal chain_density, PxMaterial *chain_material,
-		  PxReal seat_density, PxMaterial *seat_material);
-	
-	void Clear() {
-		gScene->removeActor(*shaft);
-		gScene->removeActor(*seat);
-		chain1->Clear();
-		delete chain1;
-		chain2->Clear();
-		delete chain2;
-	}
-	
-	void glutDraw() {
-		DrawActor(shaft);
-		chain1->glutDraw();
-		chain2->glutDraw();
-		DrawActor(shaft);
-		DrawActor(seat);
-	}
-	
-// return angle by degree
-	float getSwingAngle() {
-		PxVec3 shaft_pos = (PxShapeExt::getGlobalPose(*shaft_stick, *shaft)).p;
-		PxVec3 seat_pos = (PxShapeExt::getGlobalPose(*seat_board, *seat)).p;
-		PxVec3 p = seat_pos - shaft_pos;
-		return atanf(-p.z/p.y) / 3.14 * 180;
-	}
-};
-
-//Swing constructor
-Swing::Swing(PxVec3 pos, PxReal half_width, PxReal seg_num, PxReal seg_radius, PxReal seg_half_length,
-			 PxReal chain_density, PxMaterial *chain_material,
-			 PxReal seat_density, PxMaterial *seat_material) {
-	
-	seg_joint_dist = 1.10 * seg_radius + seg_half_length;
-	str_head_height = pos.y - 0.21 - seg_joint_dist;
-	seat_height = pos.y - 0.21 - (2 * (seg_joint_dist) * (seg_num + 1))
-	+ (1.10 * seg_radius);
-	
-	//shaft
-	PxTransform shaft_pos(pos);
-	
-	PxCapsuleGeometry shaft_geom(0.2, 5.0);
-	//    shaft = PxCreateStatic(*gPhysicsSDK, shaft_pos, shaft_geom, *chain_material);
-	shaft = gPhysicsSDK->createRigidStatic(shaft_pos);
-	shaft_stick = shaft->createShape(shaft_geom, *chain_material);
-	if (!shaft)
-		cerr<<"create actor failed!"<<endl;
-	gScene->addActor(*shaft);
-	
-	// chains
-	PxVec3 chain_head1(half_width, str_head_height, 0);
-	PxVec3 chain_head2(-half_width, str_head_height, 0);
-	
-	chain1 = new Chain(chain_head1, seg_num, seg_radius, seg_half_length,
-					   chain_density, chain_material);
-	chain2 = new Chain(chain_head2, seg_num, seg_radius, seg_half_length,
-					   chain_density, chain_material);
-	
-	//seat
-	PxVec3 seat_dim(half_width, 0.1, half_width / 2);
-	PxTransform seat_pos(PxVec3(0, seat_height, 0));
-	PxTransform connector1 = PxTransform(PxVec3(half_width, seg_half_length, 0),
-										 PxQuat(PxHalfPi, PxVec3(0, 0, 1)));
-	PxTransform connector2 = PxTransform(PxVec3(-half_width, seg_half_length, 0),
-										 PxQuat(PxHalfPi, PxVec3(0, 0, 1)));
-	
-	seat = gPhysicsSDK->createRigidDynamic(seat_pos);
-	if (!seat)
-		cerr<<"create actor failed!"<<endl;
-	
-	seat_board = (seat->createShape(PxBoxGeometry(seat_dim), *seat_material));
-
-	PxShape *shape;
-
-	shape = gPhysicsSDK->createShape(PxCapsuleGeometry(seg_radius, seg_half_length), *chain_material);
-	shape->setLocalPose(connector1);
-	seat->attachShape(*shape);
-
-	shape = gPhysicsSDK->createShape(PxCapsuleGeometry(seg_radius, seg_half_length), *chain_material);
-	shape->setLocalPose(connector2);
-	seat->attachShape(*shape);
-	
-	PxRigidBodyExt::updateMassAndInertia(*seat, seat_density);
-	seat->setAngularDamping(0.75);
-	seat->setLinearVelocity(PxVec3(0,0,0));
-	gScene->addActor(*seat);
-	
-	// put things together
-	PxTransform shaft_joint1(PxVec3(half_width, 0, 0), PxQuat(PxHalfPi, PxVec3(0, 0, 1)));
-	PxTransform shaft_joint2(PxVec3(-half_width, 0, 0), PxQuat(PxHalfPi, PxVec3(0, 0, 1)));
-	
-	PxTransform downend(PxVec3(-seg_joint_dist, 0, 0));
-	PxTransform upend(PxVec3(seg_joint_dist + 0.3, 0, 0));
-	
-	PxD6Joint *j;
-	
-	j = PxD6JointCreate(*gPhysicsSDK, shaft, shaft_joint1, chain1->ArticLinks[0], upend);
-	j->setMotion(PxD6Axis::eSWING1, PxD6Motion::eFREE); //free to rotate around y axis
-	
-	j = PxD6JointCreate(*gPhysicsSDK, shaft, shaft_joint2, chain2->ArticLinks[0], upend);
-	j->setMotion(PxD6Axis::eSWING1, PxD6Motion::eFREE); //free to rotate around y axis
-	
-	connector1.p += PxVec3(0, seg_joint_dist, 0);
-	connector2.p += PxVec3(0, seg_joint_dist, 0);
-	
-	j = PxD6JointCreate(*gPhysicsSDK, chain1->ArticLinks[seg_num - 1], downend, seat, connector1);
-	j->setMotion(PxD6Axis::eSWING1, PxD6Motion::eFREE); //free to rotate around y axis
-	
-	j = PxD6JointCreate(*gPhysicsSDK, chain2->ArticLinks[seg_num - 1], downend, seat, connector2);
-	j->setMotion(PxD6Axis::eSWING1, PxD6Motion::eFREE); //free to rotate around y axis
-	
-}
-
-#include <vector>
-vector<PxRigidActor*> Actors;
-vector<Swing*> swing;
-vector<Mannequin*> M0;
 
 int main( int argc, char** argv ) {
 	glutInit(&argc,argv);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_DEPTH);
 	glutInitWindowPosition(0, 0);
 	glutInitWindowSize(WINDOW_WIDTH, WINDOW_HEIGHT);
-	glutCreateWindow("Swing");
+	glutCreateWindow("More Realistic Swing Simulator (MRSS)");
 	
 	glutMouseFunc		(MouseFunc);
 	glutKeyboardFunc	(KeyPressFunc);
@@ -549,8 +60,12 @@ int main( int argc, char** argv ) {
 	glutDisplayFunc		(Animate);
 	atexit				(Shutdown);
 	
-	OpenGLInit();
-	InitializePhysX();
+	gl = new GL();
+	
+	physicsEngine = new PhysX();
+	gScene = physicsEngine->createPxScene();
+	gPhysicsSDK = physicsEngine->getPhysics();
+	CreateInitialActors();
 	
 	glutMainLoop();
 }
@@ -558,12 +73,12 @@ int main( int argc, char** argv ) {
 void MouseFunc(int button , int state, int x, int y) {
 	if(button == GLUT_LEFT_BUTTON) {
 		if(state == GLUT_DOWN) {
-			mouseisdown=true;
+			globalState.mouseisdown=true;
 		} else {
-			mouseisdown=false;
+			globalState.mouseisdown=false;
 		}
-		oldx = x;
-		oldy = y;
+		globalState.oldx = x;
+		globalState.oldy = y;
 	}
 }
 
@@ -583,18 +98,18 @@ void KeyPressFunc(unsigned char key, int x, int y) {
 			
 		case 'H':
 		case 'h':
-			help = !help;
+			globalState.help = !globalState.help;
 			break;
 			
 		case 'M':
 		case 'm':
-			manual = !manual;
-			max_angle = min_angle = 0;
+			globalState.manual = !globalState.manual;
+			globalState.max_angle = globalState.min_angle = 0;
 			break;
 			
 		case 'P':
 		case 'p':
-			paused = !paused;
+			globalState.paused = !globalState.paused;
 			break;
 			
 		case 'R':
@@ -602,17 +117,17 @@ void KeyPressFunc(unsigned char key, int x, int y) {
 			Clean();
 			CreateInitialActors();
 			// global variable initializations
-			locked = 1;
-			countdown = 1000;
-			elapsed = 0;
-			start = glutGet(GLUT_ELAPSED_TIME);
+			globalState.locked = 1;
+			globalState.countdown = 1000;
+			globalState.elapsed = 0;
+			globalState.start = glutGet(GLUT_ELAPSED_TIME);
 			
-			fps = 0;
-			startTime = 0;
-			totalFrames = 0;
+			globalState.fps = 0;
+			globalState.startTime = 0;
+			globalState.totalFrames = 0;
 			
-			max_angle = 0;
-			min_angle = 0;
+			globalState.max_angle = 0;
+			globalState.min_angle = 0;
 			break;
 			
 		case 32:	// Space Bar
@@ -633,16 +148,16 @@ void KeyPressFunc(unsigned char key, int x, int y) {
 void SpecialKeyFunc(int key, int x, int y) {
 	switch(key) {
 		case GLUT_KEY_LEFT:
-			horizontal++;
+			globalState.horizontal++;
 			break;
 		case GLUT_KEY_RIGHT:
-			horizontal--;
+			globalState.horizontal--;
 			break;
 		case GLUT_KEY_UP:
-			if (dist < 0) dist++;
+			if (globalState.dist < 0) globalState.dist++;
 			break;
 		case GLUT_KEY_DOWN:
-			dist--;
+			globalState.dist--;
 			break;
 	}
 }
@@ -664,11 +179,11 @@ void ResizeWindow(int w, int h) {
 }
 
 void MotionFunc(int x, int y) {
-	if(mouseisdown==true) {
-		roty += x - oldx;
-		rotx += y - oldy;
-		oldx = x;
-		oldy = y;
+	if(globalState.mouseisdown) {
+		globalState.roty += x - globalState.oldx;
+		globalState.rotx += y - globalState.oldy;
+		globalState.oldx = x;
+		globalState.oldy = y;
 	}
 }
 
@@ -680,14 +195,14 @@ void IdleFunc() {
 char buffer[FILENAME_MAX];
 void Animate() {
 	//Initial lock
-	if (locked) {
-		if (elapsed < countdown) {
-			if (paused) {
-				countdown -= elapsed;
-				start = glutGet(GLUT_ELAPSED_TIME);
-				elapsed = 0;
+	if (globalState.locked) {
+		if (globalState.elapsed < globalState.countdown) {
+			if (globalState.paused) {
+				globalState.countdown -= globalState.elapsed;
+				globalState.start = glutGet(GLUT_ELAPSED_TIME);
+				globalState.elapsed = 0;
 			} else {
-				elapsed = glutGet(GLUT_ELAPSED_TIME) - start;
+				globalState.elapsed = glutGet(GLUT_ELAPSED_TIME) - globalState.start;
 			}
 		} else {
 			for (int i = 0; i < M0.size(); i++) {
@@ -698,24 +213,24 @@ void Animate() {
 	}
 	
 	//Calculate fps
-	totalFrames++;
+	globalState.totalFrames++;
 	int current = glutGet(GLUT_ELAPSED_TIME);
-	if((current-startTime)>1000) {
-		float elapsedTime = float(current - startTime);
-		fps = ((totalFrames * 1000.0f)/ elapsedTime) ;
-		startTime = current;
-		totalFrames = 0;
+	if((current-globalState.startTime)>1000) {
+		float elapsedTime = float(current - globalState.startTime);
+		globalState.fps = ((globalState.totalFrames * 1000.0f)/ elapsedTime) ;
+		globalState.startTime = current;
+		globalState.totalFrames = 0;
 	}
 	
 	//Update PhysX
 	float currentAngle = swing[0]->getSwingAngle();
 	if (gScene){
-		if (help) {
+		if (globalState.help) {
 			sprintf(buffer, "D: toggle drive\nM: manual/auto\nP: pause/resume\nR: reset\nSpace: toggle pose(manual)\nArrow Keys: move perspective\nEsc: exit\nH to return");
 		} else {
 			char l1[1024], l2[1024], l3[1024];
 			
-			sprintf(l1, "FPS: %3.2f Angle: %3.2f", fps, currentAngle);
+			sprintf(l1, "FPS: %3.2f Angle: %3.2f", globalState.fps, currentAngle);
 //			PxTolerancesScale t = gPhysicsSDK->getTolerancesScale();
 //			sprintf(l1, "%lf %lf %lf", t.length, t.mass, t.speed);
 			
@@ -725,15 +240,15 @@ void Animate() {
 			} else {
 				strcat(l2, " Off  ");
 			}
-			if (manual) {
+			if (globalState.manual) {
 				strcat(l2, " Manual ");
 			} else {
 				strcat(l2, " Auto ");
 			}
-			if (paused) {
+			if (globalState.paused) {
 				strcat(l2, " Pause");
 			} else {
-				if (locked) {
+				if (globalState.locked) {
 					strcat(l2, " Initializing...");
 				}
 				StepPhysX();
@@ -746,14 +261,14 @@ void Animate() {
 	}
 	
 	// Automatic Mannequin
-	if (!locked && !manual) {
-		if (currentAngle > max_angle) {
-			max_angle = currentAngle;
+	if (!globalState.locked && !globalState.manual) {
+		if (currentAngle > globalState.max_angle) {
+			globalState.max_angle = currentAngle;
 		}
-		if (currentAngle < min_angle) {
-			min_angle = currentAngle;
+		if (currentAngle < globalState.min_angle) {
+			globalState.min_angle = currentAngle;
 		}
-		float range = (max_angle - min_angle) / 6;
+		float range = (globalState.max_angle - globalState.min_angle) / 6;
 		
 		if (currentAngle > range || currentAngle < -range) {
 			M0[0]->setMode(mode2);
@@ -766,9 +281,9 @@ void Animate() {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glLoadIdentity();
 	
-	glTranslatef(horizontal, -5, dist);
-	glRotatef(rotx, 1, 0, 0);
-	glRotatef(roty, 0, 1, 0);
+	glTranslatef(globalState.horizontal, -5, globalState.dist);
+	glRotatef(globalState.rotx, 1, 0, 0);
+	glRotatef(globalState.roty, 0, 1, 0);
 	
 	DrawAxes();
 	DrawGrid(10);
@@ -787,7 +302,7 @@ void Animate() {
 }
 
 void StepPhysX() {
-	gScene->simulate(myTimestep);
+	gScene->simulate(globalState.myTimestep);
 
 	//...perform useful work here using previous frame's state data
 	while(!gScene->fetchResults() )
@@ -1022,9 +537,8 @@ void DrawCapsule(PxShape* pShape, PxRigidActor *actor) {
 void Shutdown() {
 	Clean();
 	gScene->release();
-	mCpuDispatcher->release();
-	gPhysicsSDK->release();
-	gFoundation->release();
+	delete physicsEngine;
+	delete gl;
 }
 
 void Clean() {
@@ -1044,53 +558,6 @@ void Clean() {
 		delete swing[i];
 	}
 	swing.clear();
-}
-
-void OpenGLInit(){
-	glEnable(GL_DEPTH_TEST);
-	glEnable(GL_CULL_FACE);
-	glEnable(GL_LIGHTING);
-	glEnable(GL_LIGHT0);
-	
-	GLfloat ambient[4]={0.25,0.25,0.25,0.25};
-	GLfloat diffuse[4]={1,1,1,1};
-	
-	glLightfv(GL_LIGHT0, GL_AMBIENT, ambient);
-	glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuse);
-	glEnable(GL_COLOR_MATERIAL);
-	
-	glDisable(GL_LIGHTING);
-	
-}
-
-void InitializePhysX() {
-	gFoundation = PxCreateFoundation(PX_FOUNDATION_VERSION, gDefaultAllocatorCallback, gDefaultErrorCallback);
-	gPhysicsSDK = PxCreatePhysics(PX_PHYSICS_VERSION, *gFoundation, PxTolerancesScale());
-	if(gPhysicsSDK == NULL) {
-		cerr<<"Error creating PhysX3 device."<<endl;
-		cerr<<"Exiting..."<<endl;
-		exit(1);
-	}
-	
-	//Create the scene
-	PxSceneDesc sceneDesc(gPhysicsSDK->getTolerancesScale());
-	sceneDesc.gravity=PxVec3(0.0f, -9.8f, 0.0f);
-	
-	if(!sceneDesc.cpuDispatcher) {
-		mCpuDispatcher = PxDefaultCpuDispatcherCreate(1);
-		if(!mCpuDispatcher)
-			cerr<<"PxDefaultCpuDispatcherCreate failed!"<<endl;
-		sceneDesc.cpuDispatcher = mCpuDispatcher;
-	}
-	if(!sceneDesc.filterShader)
-		sceneDesc.filterShader  = gDefaultFilterShader;
-	
-	
-	gScene = gPhysicsSDK->createScene(sceneDesc);
-	if (!gScene)
-		cerr<<"createScene failed!"<<endl;
-	
-	CreateInitialActors();
 }
 
 void CreateInitialActors() {

@@ -1,17 +1,21 @@
 //
-//  main.h
+//  main.hpp
 //  MRSS
 //
 //  Created by tengcm on 14/10/29.
 //
 //
 
-#ifndef main_h
-#define main_h
+#ifndef main_hpp
+#define main_hpp
 
-#include <vector>
-using namespace physx;
-using namespace std;
+#include "PhysX.hpp"
+
+#define WINDOW_WIDTH 1024
+#define WINDOW_HEIGHT 768
+
+extern PxPhysics *gPhysicsSDK;
+extern PxScene *gScene;
 
 void MouseFunc(int button , int state, int x, int y);
 
@@ -48,20 +52,17 @@ void DrawCapsule(PxShape* pShape, PxRigidActor *actor);
 void Shutdown();
 void Clean();
 
-void OpenGLInit();
-
-void InitializePhysX();
 void CreateInitialActors();
 
 PxQuat QuatRotate (PxVec3 axis, PxReal rot);
 PxVec3 VecRotate (PxReal theta, PxReal phi);
 
 PxRigidDynamic* CreateBox (PxVec3 pos, PxVec3 axis, PxReal rot,
-                           PxVec3 dimension, PxReal density, PxMaterial* mMaterial);
+						   PxVec3 dimension, PxReal density, PxMaterial* mMaterial);
 PxRigidDynamic* CreateSphere(PxVec3 pos, PxReal radius,
-                             PxReal density, PxMaterial* mMaterial);
+							 PxReal density, PxMaterial* mMaterial);
 PxRigidDynamic* CreateCapsule(PxVec3 pos, PxVec3 axis, PxReal rot,
-                              PxReal radius, PxReal half_height,
-                              PxReal density, PxMaterial *mMaterial);
+							  PxReal radius, PxReal half_height,
+							  PxReal density, PxMaterial *mMaterial);
 
-#endif /* main_h */
+#endif /* main_hpp */
