@@ -10,12 +10,14 @@
 
 #include <GLUT/GLUT.h>
 
+#include <memory>
+
 class GL {
 public:
 	GL();
 	~GL();
 };
 
-extern GL *gl;
+extern std::unique_ptr<GL> gl;
 
 #endif /* GL_hpp */

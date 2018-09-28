@@ -16,30 +16,25 @@ struct GlobalState {
 	int oldx, oldy;
 	int roty = 30;
 	int rotx = 20;
-	
+
 	// for moving perspective
 	float dist = -20;
 	float horizontal = 0;
-	
+
 	// for initianlizing lock
-	bool locked = 0;
 	float countdown = 1000;
 	float elapsed = 0;
 	float start = 0;
-	
+
 	// for calculating fps
 	float fps = 0;
 	int startTime = 0;
 	int totalFrames = 0;
-	
-	// for auto swing
-	float max_angle = 0;
-	float min_angle = 0;
-	
+
 	// modes
-	bool help = 0;
-	bool paused = 1;
-	bool manual = 1;
+	bool help = false;
+	bool paused = true;
+	bool manual = false;
 
 	PxReal myTimestep = 1.0f/40.0f;
 };
